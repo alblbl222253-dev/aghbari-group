@@ -1,0 +1,4 @@
+Arabic Primary: Alexandria
+Arabic Alternative: Cairo
+English Primary: Geist
+English Alternative: Inter

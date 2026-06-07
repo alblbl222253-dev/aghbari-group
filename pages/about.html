@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قصتنا ومن نحن | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="تعرف على مجموعة الغباري الرقمية ورؤيتها في تقديم حلول مبتكرة في مجالات التسويق وتطوير البرمجيات. قصة المؤسس نابل الغباري وخارطة طريق المنظومة.">
+  <meta name="keywords" content="من نحن, قصة الغباري, نابل الغباري, رؤية المنظومة, مستقبل الشركة">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  <style>
+    .about-shell::before, .about-shell::after { content:""; position:absolute; inset:auto; width:260px; height:260px; border-radius:50%; filter:blur(90px); opacity:.12; pointer-events:none; }
+    .about-shell::before { top:-70px; right:-40px; background: radial-gradient(circle, rgba(56,189,248,.35), transparent 65%); animation: drift 12s infinite alternate; }
+    .about-shell::after { left:-70px; bottom:-20px; background: radial-gradient(circle, rgba(245,158,11,.25), transparent 65%); animation: drift 15s infinite alternate-reverse; }
+    .about-shell { position:relative; overflow:hidden; }
+    .about-metrics { display:grid; grid-template-columns: repeat(3,1fr); gap: var(--space-4); margin-top: var(--space-6); }
+    .metric-card { padding: 1.2rem; border-radius: var(--radius-xl); background: rgba(15,23,42,.62); border: 1px solid rgba(148,163,184,.14); text-align:center; transition: transform .35s, box-shadow .35s; }
+    .metric-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(15,23,42,.35); }
+    .metric-value { font-size: 1.8rem; font-weight:800; color: var(--color-gold); }
+    .about-pills { display:flex; flex-wrap:wrap; gap: .75rem; justify-content:center; margin-top: 1rem; }
+    .about-pill { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-full); padding: .45rem .75rem; color: var(--color-text-secondary); font-size: .92rem; }
+    @keyframes drift { from { transform: translateY(0) scale(1);} to { transform: translateY(18px) scale(1.08);} }
+    @media (max-width: 980px) { .about-metrics { grid-template-columns: 1fr; } }
+  </style>
+  
+  <style>
+    /* تنسيقات خاصة بصفحة من نحن — Special About Page layouts */
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    
+    .founder-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      aspect-ratio: 4/5;
+    }
+    
+    .founder-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section-secondary-bg {
+      background: var(--color-bg-secondary);
+    }
+
+    .founder-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(2, 6, 23, 0.9), transparent);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .founder-overlay-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: white;
+    }
+
+    .founder-overlay-subtitle {
+      font-size: var(--text-xs);
+      color: var(--color-gold);
+    }
+
+    .founder-story-text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .founder-story-text h2 {
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .founder-story-text p {
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      font-size: var(--text-base);
+    }
+
+    .founder-quote {
+      border-right: 4px solid var(--color-blue);
+      padding: 1rem;
+      background: rgba(59, 130, 246, 0.05);
+      color: var(--color-text-primary);
+      font-style: italic;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 10px;
+    }
+    
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      position: relative;
+      padding-right: 2rem;
+      border-right: 2px solid rgba(59, 130, 246, 0.2);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .roadmap-node {
+      position: relative;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-xl);
+    }
+    
+    .roadmap-node::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -2.35rem;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-cyan);
+      box-shadow: 0 0 10px var(--color-cyan);
+    }
+    
+    .roadmap-node.active::before {
+      background: var(--color-gold);
+      box-shadow: 0 0 10px var(--color-gold);
+    }
+
+    .section-top-padding {
+      padding-top: var(--space-8);
+    }
+
+    .section-cards-grid {
+      margin-bottom: var(--space-12);
+    }
+
+    .feature-card {
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .feature-card-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-2);
+    }
+
+    .feature-card-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card-desc {
+      color: var(--color-text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .footer-main {
+      background: #020617;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: var(--space-12) 0 var(--space-4);
+      color: var(--color-text-muted);
+    }
+
+    .footer-grid {
+      margin-bottom: var(--space-8);
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .footer-logo {
+      margin-bottom: var(--space-1);
+    }
+
+    .footer-logo img {
+      height: 52px;
+    }
+
+    .footer-logo-name {
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+
+    .footer-desc {
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .footer-heading {
+      color: var(--color-text-primary);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      font-size: var(--text-base);
+    }
+
+    .footer-list,
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      font-size: var(--text-sm);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-contact-list {
+      gap: var(--space-2);
+    }
+
+    .footer-social-row {
+      margin-top: var(--space-2);
+    }
+
+    .footer-social-row .social-links {
+      display: flex;
+      gap: 15px;
+      font-size: 1.2rem;
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: var(--text-xs);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link">أعمالنا</a>
+        <a href="about.html" class="nav-link active">من نحن</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- خلفية متناسقة في أعلى الصفحة -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">من نحن</span>
+      <h1 class="section-title reveal">مجموعة الغباري الرقمية</h1>
+      <p class="section-desc reveal">رؤية إبداعية جديدة تجمع الفن البرمجي والتسويق لخدمة قطاع الأعمال.</p>
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+  <!-- قسم التفاصيل الأساسية والرؤية والمهمة — Mission, Vision & Values -->
+  <section class="section section-top-padding about-shell">
+    <div class="container">
+      
+      <div class="grid-3 section-cards-grid">
+        
+        <div class="glass-card spotlight-card reveal feature-card">
+          <div class="feature-card-icon">🎯</div>
+          <h3 class="feature-card-title">رسالتنا</h3>
+          <p class="feature-card-desc">
+            تقديم خدمات تسويقية مبتكرة وحلول تقنية برمجية متكاملة تسهل للأفراد والشركات تحويل أفكارهم الطموحة إلى واقع رقمي ومنافس بقوة.
+          </p>
+        </div>
+        
+        <div class="glass-card spotlight-card reveal stagger-1 feature-card">
+          <div class="feature-card-icon">👁️</div>
+          <h3 class="feature-card-title">رؤيتنا</h3>
+          <p class="feature-card-desc">
+            أن نصبح المنظومة الرقمية الإبداعية الرائدة في الوطن العربي، التي يتردد اسمها كشريك أساسي في كل قصة نجاح إدارية أو برمجية أو تسويقية.
+          </p>
+        </div>
+        
+        <div class="glass-card spotlight-card reveal stagger-2 feature-card">
+          <div class="feature-card-icon">💎</div>
+          <h3 class="feature-card-title">قيمنا</h3>
+          <p class="feature-card-desc">
+            الاحترافية المطلقة، الابتكار المستمر، الشفافية التامة مع العملاء، السعي الدائم للتعلم، والالتزام بتقديم جودة تليق بتطلعات شركائنا.
+          </p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم قصة التأسيس والمؤسس — Story & Founder Section -->
+  <section class="section section-secondary-bg" id="founder-story">
+    <div class="container">
+      <div class="about-story-grid">
+        
+        <!-- عمود الصورة -->
+        <div class="reveal-right">
+          <div class="founder-image-wrapper">
+            <!-- الصورة التي تم نسخها مسبقاً للـ founder -->
+            <img src="../assets/images/team/founder.jpg" alt="المؤسس نبيل الغباري">
+            <div class="founder-overlay">
+              <h3 class="founder-overlay-title">نبيل الغباري</h3>
+              <span class="founder-overlay-subtitle">مؤسس ومدير مجموعة الغباري</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- عمود النص وقصة الكفاح -->
+        <div class="reveal-left founder-story-text">
+          <span class="section-badge">قصة النجاح</span>
+          <h2>طموح طالب وشغف ريادي</h2>
+          <p>
+            بدأت رحلة مجموعة الغباري كفكرة طموحة تولدت لدى الأستاذ <strong>نبيل الغباري</strong>، خلال دراسته الجامعية المتخصصة في <em>نظام المعلومات المحاسبية (AIS)</em>.
+          </p>
+          <p>
+            من خلال دمجه المتميز بين العلوم المالية والإدارية وبين الشغف العميق بتقنيات البرمجة الحديثة وتصميم الهوية الفنية، استطاع تأسيس هذه المنظومة لتسد الفجوة بين الأهداف الإدارية للشركات وبين المنصات التقنية والتسويقية التي تمثلها.
+          </p>
+          <blockquote class="founder-quote">
+            "لم نكن نطمح يوماً لمجرد بناء منصات تقنية سريعة أو هويات بصرية جميلة، بل كان شغفنا دوماً هو صياغة محرك رقمي متكامل ينمي أعمال شركائنا ويوصلهم للقمة بثقة."
+          </blockquote>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم خارطة طريق المستقبل — Future Roadmap Section -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">خارطة الطريق</span>
+        <h2 class="section-title reveal">أين نتجه؟ مستقتبل المنظومة</h2>
+        <p class="section-desc reveal">رؤيتنا التوسعية للمستقبل القريب والحلول البرمجية التي نسعى لإطلاقها لعملائنا.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="roadmap-list" style="max-width: 800px; margin: 0 auto;">
+        
+        <div class="roadmap-node active reveal">
+          <h4 style="font-weight: 700; font-size: var(--text-lg); color: var(--color-gold);">المرحلة 1: بناء وتأسيس المواقع التعريفية والهويات (المرحلة الحالية)</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: 5px;">إطلاق الهويات البصرية المتكاملة، وتطوير مواقع الويب وعرض خدمات البرمجة والتسويق واستقبال الطلبات.</p>
+        </div>
+        
+        <div class="roadmap-node reveal stagger-1">
+          <h4 style="font-weight: 700; font-size: var(--text-lg);">المرحلة 2: إطلاق بوابة العملاء الموحدة (Client Portal)</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: 5px;">تطوير لوحة تحكم آمنة للعملاء لمتابعة مراحل تنفيذ مشاريعهم، إرسال الملفات، الفواتير، ومحاثة المهندسين مباشرة.</p>
+        </div>
+        
+        <div class="roadmap-node reveal stagger-2">
+          <h4 style="font-weight: 700; font-size: var(--text-lg);">المرحلة 3: تطوير أنظمة المحاسبة والـ ERP السحابية المدمجة</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: 5px;">إطلاق نظام محاسبة سحابي مبسط ومصمم خصيصاً للمؤسسات والشركات الناشئة في السوق اليمني والعربي لإدارة المبيعات والضرائب.</p>
+        </div>
+        
+        <div class="roadmap-node reveal stagger-3">
+          <h4 style="font-weight: 700; font-size: var(--text-lg);">المرحلة 4: إطلاق أكاديمية الغباري الرقمية (LMS Academy)</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: 5px;">أكاديمية تعليمية متخصصة لتدريب وتأهيل الشباب في مجالات البرمجة، إدارة قواعد البيانات، التسويق الإعلاني، وتهيئة محركات البحث.</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer" style="background: #020617; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: var(--space-12) 0 var(--space-4); color: var(--color-text-muted);">
+    <div class="container">
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <div class="navbar-logo" style="margin-bottom: var(--space-1);">
+            <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo" style="height: 52px;">
+            <span class="navbar-brand-name" style="font-size: var(--text-lg); font-weight: 700;">مجموعة الغباري</span>
+          </div>
+          <p style="font-size: var(--text-sm); line-height: 1.8;">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">خدماتنا الرقمية</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">صفحات الموقع</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">تواصل معنا</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm);">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li style="margin-top: 10px; display: flex; gap: 15px; font-size: 1.2rem;">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: var(--text-xs);">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

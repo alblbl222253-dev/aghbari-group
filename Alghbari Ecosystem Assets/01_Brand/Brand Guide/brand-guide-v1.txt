@@ -1,0 +1,54 @@
+Brand Name:
+Alghbari Group
+
+Sub Brands:
+Alghbari Marketing
+Alghbari Soft
+
+Brand Personality:
+Modern
+Professional
+Innovative
+Reliable
+Premium
+
+Design Direction:
+Premium Technology Company
+
+Visual Style:
+
+Dark luxury theme
+Glassmorphism
+Soft gradients
+Modern SaaS appearance
+Smooth interactions
+Premium spacing
+Minimal design
+
+Animations:
+
+Framer Motion
+Scroll Reveal
+Parallax Sections
+Animated Counters
+Magnetic Buttons
+Hover Effects
+Spotlight Cursor
+Page Transitions
+
+Icons:
+Lucide Icons
+
+Target Audience:
+Entrepreneurs
+Companies
+Startups
+Organizations
+Business Owners
+
+Website Goal:
+Generate Leads
+Build Trust
+Show Portfolio
+Sell Services
+Convert Visitors Into Clients

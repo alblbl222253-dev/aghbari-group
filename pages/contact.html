@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="اتصل بمجموعة الغباري الرقمية لمناقشة مشروعك التسويقي أو البرمجي. يمكنك حجز استشارتك المجانية، أو مراسلتنا مباشرة على واتساب أو عبر النموذج الفني.">
+  <meta name="keywords" content="اتصل بنا, حجز استشارة, رقم الغباري, بريد الكتروني, صنعاء اليمن">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  
+  <style>
+    /* أنماط صفحة التواصل الخاصة — Contact form elements spacing */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .form-label {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-secondary);
+    }
+    
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      outline: none;
+      transition: var(--transition-base);
+      font-size: var(--text-sm);
+    }
+    
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-blue);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.15);
+    }
+    
+    .form-select option {
+      background: var(--color-bg-secondary);
+      color: white;
+    }
+    
+    .contact-info-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: var(--space-2);
+    }
+    
+    .contact-info-icon {
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    
+    .map-container {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: var(--space-4);
+      height: 250px;
+    }
+
+    /* Replace inline styles used in markup */
+    .section--pt-lg { padding-top: var(--space-8); }
+    .glass-card--pad { padding: 2.5rem; }
+    .heading-xl { font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-4); }
+    .grid-2--compact { gap: var(--space-2); margin-bottom: 0; }
+  </style>
+  <style>
+    /* Styles moved from inline to classes for contact cards */
+    .whatsapp-card {
+      border-color: rgba(34,197,94,0.3);
+      background: rgba(34,197,94,0.02);
+    }
+    .whatsapp-icon {
+      color: #22C55E;
+      background: rgba(34,197,94,0.06);
+    }
+    .contact-title-white { color: white; }
+    .contact-number-green { color: #22C55E; }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link">أعمالنا</a>
+        <a href="about.html" class="nav-link">من نحن</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link active">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button type="button" class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- خلفية متناسقة في أعلى الصفحة -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">تواصل معنا</span>
+      <h1 class="section-title reveal">دعنا نتحدث عن مشروعك القادم</h1>
+      <p class="section-desc reveal">سواء كان لديك تصميم شعار أو نظام ERP برمجى كامل، يسرنا جداً تحويله لحقيقة معاً.</p>
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+  <!-- قسم نموذج التواصل والبيانات — Form & Info Section -->
+  <section class="section section--pt-lg">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- الجانب الأيمن: نموذج التواصل التفاعلي -->
+        <div class="glass-card reveal-right glass-card--pad">
+          <h2 class="heading-xl">نموذج الاستشارة المخصصة</h2>
+          
+          <form id="contactForm">
+            
+            <div class="form-group">
+              <label class="form-label" for="userName">الاسم الكامل *</label>
+              <input type="text" class="form-input" id="userName" name="name" placeholder="اكتب اسمك الكريم..." required autocomplete="name">
+            </div>
+            
+            <div class="grid-2 grid-2--compact">
+              <div class="form-group">
+                <label class="form-label" for="userEmail">البريد الإلكتروني *</label>
+                <input type="email" class="form-input" id="userEmail" name="email" placeholder="name@domain.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="userPhone">رقم الجوال / الواتساب</label>
+                <input type="tel" class="form-input" id="userPhone" name="phone" placeholder="77XXXXXXX" autocomplete="tel">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="requestedService">الخدمة المطلوبة</label>
+              <select class="form-select" id="requestedService" name="service">
+                <option value="consulting">جلسة استشارية مجانية (30 دقيقة)</option>
+                <option value="logo">تصميم شعار وهوية بصرية</option>
+                <option value="social">إدارة حسابات السوشيال ميديا وصناعة المحتوى</option>
+                <option value="web">تطوير موقع ويب أو منصة إلكترونية</option>
+                <option value="app">برمجة تطبيق هاتف ذكي (Android/iOS)</option>
+                <option value="erp">أنظمة مالية ومحاسبية / نظام ERP</option>
+                <option value="ai">روبوتات ومساعدي ذكاء اصطناعي للأعمال</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="projectDesc">تفاصيل مشروعك وفكرتك *</label>
+              <textarea class="form-textarea" id="projectDesc" name="message" rows="5" placeholder="اكتب لنا نبذة سريعة عن مشروعك، ما هي المتطلبات الأساسية، والميزانية المقدرة..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg btn-shimmer" style="width: 100%; margin-top: 10px;">إرسال طلبك الآن</button>
+            
+          </form>
+        </div>
+        
+        <!-- الجانب الأيسر: معلومات الاتصال السريع والخريطة -->
+        <div class="reveal-left">
+          
+          <h2 class="heading-xl">قنوات الاتصال المباشر</h2>
+          
+          <!-- بطاقة واتساب السريع -->
+          <a href="https://wa.me/967770104005" target="_blank" rel="noopener noreferrer" class="contact-info-card whatsapp-card">
+            <div class="contact-info-icon whatsapp-icon">💬</div>
+            <div>
+              <h4 class="contact-title-white">واتساب المباشر (سريع جداً)</h4>
+              <span class="contact-number-green">+967 770104005</span>
+            </div>
+          </a>
+          
+          <!-- بطاقة الإيميل -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon contact-info-icon--cyan">📧</div>
+            <div>
+              <h4 class="contact-card-title">البريد الإلكتروني للطلبات</h4>
+              <span class="muted-xs">alghbarigroup@gmail.com</span>
+            </div>
+          </div>
+          
+          <!-- بطاقة الهاتف -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon contact-info-icon--gold">📞</div>
+            <div>
+              <h4 class="contact-card-title">رقم الاتصال المباشر</h4>
+              <span class="muted-xs">770104005</span>
+            </div>
+          </div>
+          
+          <!-- بطاقة العنوان -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon contact-info-icon--purple">📍</div>
+            <div>
+              <h4 class="contact-card-title">الموقع الجغرافي للمقر</h4>
+              <span class="muted-xs">صنعاء، الجمهورية اليمنية</span>
+            </div>
+          </div>
+          
+          <!-- خريطة الموقع الجغرافي -->
+          <div class="map-container">
+            <!-- خريطة مبسطة لصنعاء، اليمن -->
+            <iframe
+              title="خريطة صنعاء - موقع مجموعة الغباري"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123049.2559590623!2d44.11667756614488!3d15.35565345719356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1603db0b6ec8d1df%3A0x7d9760be69752df8!2z2LXYp9mG2YrYjCDYp9mE2YrZhdmG!5e0!3m2!1sar!2s!4v1700000000000!5m2!1sar!2s"
+              width="100%"
+              height="100%"
+              style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer">
+            </iframe>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer" style="background: #020617; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: var(--space-12) 0 var(--space-4); color: var(--color-text-muted);">
+    <div class="container">
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <div class="navbar-logo" style="margin-bottom: var(--space-1);">
+            <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo" style="height: 52px;">
+            <span class="navbar-brand-name" style="font-size: var(--text-lg); font-weight: 700;">مجموعة الغباري</span>
+          </div>
+          <p style="font-size: var(--text-sm); line-height: 1.8;">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">خدماتنا الرقمية</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">صفحات الموقع</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">تواصل معنا</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm);">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li style="margin-top: 10px; display: flex; gap: 15px; font-size: 1.2rem;">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: var(--text-xs);">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل  الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+
+    // كود تحديد الخدمة المحددة تلقائياً من معاملات الرابط (Query Params)
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceParam = urlParams.get('service');
+      
+      if (serviceParam) {
+        const selectElement = document.getElementById('requestedService');
+        if (selectElement) {
+          // البحث في قيم الخيارات عن المعامل الممرر
+          for (let option of selectElement.options) {
+            if (option.value === serviceParam) {
+              selectElement.value = serviceParam;
+              break;
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

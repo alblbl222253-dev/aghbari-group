@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدماتنا | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="تصفح قائمة الخدمات المتكاملة لمجموعة الغباري الرقمية: تصميم الشعارات، الهويات البصرية، برمجة وتطوير مواقع الويب، تطبيقات الجوال، الأنظمة المحاسبية ERP، وحلول الذكاء الاصطناعي.">
+  <meta name="keywords" content="خدمات برمجية, تصميم شعار, هوية بصرية, محاسبة, نظام ERP, تطبيق اندرويد, تطبيق ايفون, ذكاء اصطناعي">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  <style>
+    .services-shell { position: relative; overflow: hidden; }
+    .services-shell::before,
+    .services-shell::after {
+      content: "";
+      position: absolute; inset: auto;
+      width: 220px; height: 220px; border-radius: 50%;
+      filter: blur(80px); opacity: .18; pointer-events: none;
+      background: radial-gradient(circle, rgba(56,189,248,.35), transparent 65%);
+      animation: pulseGlow 8s infinite alternate;
+    }
+    .services-shell::before { top: -40px; left: -60px; }
+    .services-shell::after { right: -30px; bottom: -30px; background: radial-gradient(circle, rgba(245,158,11,.25), transparent 65%); }
+    .services-tab { position: relative; overflow: hidden; }
+    .services-tab::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent, rgba(255,255,255,.12), transparent); transform: translateX(-100%); transition: transform .5s; pointer-events: none; }
+    .services-tab:hover::after { transform: translateX(100%); }
+    .tab-content-enter { animation: fadeInUp 0.45s ease both; }
+    .spotlight-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 40px rgba(15, 23, 42, .35); }
+    .service-highlight-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: var(--space-4); margin-top: var(--space-6); }
+    .service-highlight-card { padding: 1.2rem; border-radius: var(--radius-xl); background: rgba(15,23,42,.65); border: 1px solid rgba(148,163,184,.14); }
+    @keyframes pulseGlow { from { transform: scale(1); } to { transform: scale(1.12); } }
+    @media (max-width: 980px) { .service-highlight-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل — Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي — Navbar Section -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link active">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link">أعمالنا</a>
+        <a href="about.html" class="nav-link">من نحن</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- خلفية متناسقة في أعلى الصفحة -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">دليل الخدمات</span>
+      <h1 class="section-title reveal">ماذا نقدم لنمو أعمالك؟</h1>
+      <p class="section-desc reveal">باقة متكاملة من الخدمات الرقمية المتناسقة المصممة لدعم هويتك التسويقية وحلولك البرمجية.</p>
+      <div class="section-divider"></div>
+      
+      <!-- أزرار التبديل والتبويبات -->
+      <div class="services-tabs" style="margin-top: var(--space-4);">
+        <button type="button" class="services-tab active" data-tab="marketing">🎨 الغباري للتسويق</button>
+        <button type="button" class="services-tab" data-tab="soft">💻 الغباري سوفت</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- محتويات الخدمات التبويبية — Tab Contents Section -->
+  <section class="section services-shell" style="padding-top: var(--space-8);">
+    <div class="container">
+      
+      <!-- تبويب: الغباري للتسويق -->
+      <div class="tab-content" id="marketing" style="display: grid;">
+        <div class="grid-3">
+          
+          <div class="glass-card spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">🎨</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">تصميم الشعارات</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                تصميم شعارات فريدة ومبتكرة تعبر عن جوهر علامتك التجارية وتترك انطباعاً أولياً قوياً وراسخاً لدى جمهورك.
+              </p>
+              <a href="contact.html?service=logo" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal stagger-1">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">✨</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">الهوية البصرية الكاملة</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                بناء نظام متكامل للهوية يشمل اختيار الألوان، الخطوط، المطبوعات، ودليل الاستخدام الإرشادي للحفاظ على مظهر متناسق.
+              </p>
+              <a href="contact.html?service=branding" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal stagger-2">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">📲</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">إدارة السوشيال ميديا</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                إدارة حساباتك على قنوات التواصل المختلفة بفعالية، تشمل كتابة المحتوى الإبداعي وتصميم الصور التفاعلية والردود.
+              </p>
+              <a href="contact.html?service=social" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">✍️</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">صناعة المحتوى</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                كتابة محتوى تسويقي مقنع ومدونات متوافقة مع الـ SEO للمواقع، يهدف لجذب المهتمين وتحويلهم إلى عملاء دائمين.
+              </p>
+              <a href="contact.html?service=content" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal stagger-1">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">📣</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">الإعلانات الرقمية الممولة</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                تخطيط وإدارة الحملات الإعلانية المدفوعة على منصات جوجل ومواقع التواصل الاجتماعي لتحقيق أعلى عائد على الاستثمار ROI.
+              </p>
+              <a href="contact.html?service=ads" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal stagger-2">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">🎬</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">فيديوهات الموشن جرافيكس</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                إنتاج فيديوهات رسوم متحركة إبداعية تشرح خدماتك وأفكارك بطريقة بصرية مشوقة تساهم في إيصال فكرتك بسرعة.
+              </p>
+              <a href="contact.html?service=motion" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">💡</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">استشارات التسويق</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                تقديم جلسات استشارية معمقة لتحليل وضعك التسويقي الحالي ووضع استراتيجيات نمو ملائمة لزيادة أرباحك وتواجدك.
+              </p>
+              <a href="contact.html?service=consulting" class="btn btn-ghost btn-sm" style="width: 100%;">طلب الخدمة</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- تبويب: الغباري سوفت -->
+      <div class="tab-content" id="soft" style="display: none;">
+        <div class="grid-3">
+          
+          <div class="glass-card gold spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">💻</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">تطوير المواقع والمنصات</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                برمجة وتصميم مواقع إلكترونية سريعة وآمنة ومتجاوبة بالكامل مع الأجهزة الذكية، ومحسنة للظهور في محركات البحث SEO.
+              </p>
+              <a href="contact.html?service=web" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal stagger-1">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">📱</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">تطبيقات الهواتف الذكية</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                تطوير تطبيقات جوال مخصصة للأندرويد و iOS باستخدام أحدث تقنيات Flutter لضمان سلاسة الأداء وتجربة مستخدم ممتازة.
+              </p>
+              <a href="contact.html?service=app" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal stagger-2">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">📊</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">الأنظمة المحاسبية المتقدمة</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                تصميم وبناء أنظمة مالية ومحاسبية لحسابات الأرباح والخسائر والمخزون، تتطابق مع القوانين والإجراءات المالية للشركات.
+              </p>
+              <a href="contact.html?service=accounting" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">🚀</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">أنظمة إدارة الموارد (ERP)</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                ربط كافة أقسام شركتك (المالية، الموارد البشرية، المبيعات، المخازن) بنظام ERP متكامل يسهل اتخاذ القرارات اليومية.
+              </p>
+              <a href="contact.html?service=erp" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal stagger-1">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">👥</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">أنظمة إدارة العملاء (CRM)</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                أنظمة متخصصة لمتابعة المبيعات، العملاء المحتملين، وتنظيم مهام فريق تسويقك لرفع نسبة إتمام الصفقات وتطوير العلاقة مع عملائك.
+              </p>
+              <a href="contact.html?service=crm" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal stagger-2">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">🤖</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">حلول الذكاء الاصطناعي</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                دمج نماذج الذكاء الاصطناعي، أتمتة العمليات (RPA)، وتطوير روبوتات الدردشة الذكية لخدمة العملاء على مدار الساعة.
+              </p>
+              <a href="contact.html?service=ai" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+          <div class="glass-card gold spotlight-card reveal">
+            <div style="padding: 2rem;">
+              <div style="font-size: 2.2rem; margin-bottom: var(--space-2);">🛒</div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; color: var(--color-gold);">متاجر إلكترونية متكاملة</h3>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1rem;">
+                إنشاء متاجر إلكترونية حديثة تدعم بوابات الدفع، وإدارة الشحن والمخازن، لتسهيل عملية البيع الرقمي لجمهورك محلياً وعالمياً.
+              </p>
+              <a href="contact.html?service=ecom" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245,158,11,0.3); color: var(--color-gold);">طلب الخدمة</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-bg-secondary); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">لماذا تختارنا؟</span>
+        <h2 class="section-title">تصاميم و حلول مدمجة مع لمسة احترافية</h2>
+        <p class="section-desc">نربط بين الإبداع التسويقي والبرمجة الحديثة لتمنح كل مشروعك طابعاً احترافياً وملموساً.</p>
+      </div>
+      <div class="service-highlight-grid">
+        <article class="service-highlight-card reveal"><h3 style="font-size: var(--text-lg); font-weight:700; margin-bottom: .35rem;">⚡ سرعة تنفيذ</h3><p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7;">خطط تنفيذ واضحة، متابعة يومية، ونظم عمل مرنة تجعل كل مرحلة من المشروع منضبطة ومؤثرة.</p></article>
+        <article class="service-highlight-card reveal stagger-1"><h3 style="font-size: var(--text-lg); font-weight:700; margin-bottom: .35rem;">🎯 حلول مخصصة</h3><p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7;">لا يوجد قالب جاهز يحدد شكل مشروعك؛ كل فكرة نعيد صياغتها لتناسب جمهورك ودوافع نموك.</p></article>
+        <article class="service-highlight-card reveal stagger-2"><h3 style="font-size: var(--text-lg); font-weight:700; margin-bottom: .35rem;">🤝 دعم مستمر</h3><p style="color: var(--color-text-secondary); font-size: var(--text-sm); line-height: 1.7;">بعد التسليم نواصل دعمك في التحديثات، التحسينات، والتوسع مع نمو علامتك التجارية.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الدعوة لاتخاذ إجراء -->
+  <section class="section" style="background: var(--color-bg-secondary); text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <h2 style="font-size: var(--text-3xl); font-weight: 800; margin-bottom: var(--space-2);">هل تحتاج إلى حل رقمي مخصص تماماً؟</h2>
+      <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-4); line-height: 1.8;">
+        إذا كانت لديك فكرة أو نظام مخصص لا يقع ضمن الخيارات السابقة، يسعدنا مناقشة احتياجاتك وتصميم حل مخصص يناسب أهدافك الفردية بدقة.
+      </p>
+      <a href="contact.html" class="btn btn-primary btn-lg btn-shimmer">احجز استشارة مخصصة الآن</a>
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة — Footer Section -->
+  <footer class="footer" style="background: #020617; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: var(--space-12) 0 var(--space-4); color: var(--color-text-muted);">
+    <div class="container">
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <div class="navbar-logo" style="margin-bottom: var(--space-1);">
+            <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo" style="height: 52px;">
+            <span class="navbar-brand-name" style="font-size: var(--text-lg); font-weight: 700;">مجموعة الغباري</span>
+          </div>
+          <p style="font-size: var(--text-sm); line-height: 1.8;">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">خدماتنا الرقمية</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">صفحات الموقع</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">تواصل معنا</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm);">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li style="margin-top: 10px; display: flex; gap: 15px; font-size: 1.2rem;">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: var(--text-xs);">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+
+    // كود إضافي لتفعيل التبويب الممرر من الرابط (مثال: ?tab=soft)
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      
+      if (tabParam) {
+        const tabButton = document.querySelector(`.services-tab[data-tab="${tabParam}"]`);
+        if (tabButton) {
+          // محاكاة النقر على الزر المناسب لتشغيل المبدل الرئيسي
+          tabButton.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

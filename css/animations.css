@@ -1,0 +1,626 @@
+/* ============================================================
+   مجموعة الغباري — نظام الحركات والتأثيرات
+   Alghbari Group — Animations System
+   
+   01. حركات المظهر (Keyframes)
+   02. تأثيرات القسم الرئيسي (Hero Animations)
+   03. حركات الكشف عند التمرير (Scroll Reveal)
+   04. تأثيرات التحويم (Hover Effects)
+   05. حركات المساعد الذكي (AI Widget)
+   06. تأثيرات التحميل (Loading)
+   07. حركات الكاروسيل
+   ============================================================ */
+
+
+/* ============================================================
+   01. Keyframes — الحركات الأساسية
+   ============================================================ */
+
+/* ظهور من الأسفل للأعلى */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ظهور من الأعلى للأسفل */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ظهور بسيط */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* تكبير عند الظهور */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ظهور من اليمين (RTL) */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ظهور من اليسار (RTL) */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* طفو عمودي — للعناصر العائمة */
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+    opacity: 0.35;
+  }
+}
+
+/* ارتداد للأسفل — تمييل التمرير */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50%       { transform: translateY(8px) translateX(-50%); }
+}
+
+/* نبض — النقاط الحية */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* نبض الحلقة — AI Button */
+@keyframes aiPulse {
+  0%   { box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 0 rgba(59,130,246,0.4); }
+  70%  { box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 16px rgba(59,130,246,0); }
+  100% { box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 0 0 0 rgba(59,130,246,0); }
+}
+
+/* دوران — للأيقونات التحميلية */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* هيكل التحميل Skeleton */
+@keyframes skeleton {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* حركة Aurora الخلفية */
+@keyframes aurora {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+}
+
+/* رسم الخط (للتسطير المتحرك) */
+@keyframes drawLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ظهور رقم العداد */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* خلفية Aurora المتدرجة */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* اهتزاز خفيف — للتنبيهات */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-5px); }
+  40%       { transform: translateX(5px); }
+  60%       { transform: translateX(-3px); }
+  80%       { transform: translateX(3px); }
+}
+
+/* طفو عائم مستمر للعناصر الزخرفية */
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-15px) rotate(2deg); }
+  66%       { transform: translateY(-8px) rotate(-1deg); }
+}
+
+/* تألق (shimmer) — تأثير لمعان */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+
+/* ============================================================
+   02. خلفية Hero المتحركة — Aurora Background
+   ============================================================ */
+
+/* خلفية التدرج المتحركة خلف Hero */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(59,130,246,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(6,182,212,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(245,158,11,0.04) 0%, transparent 60%);
+  animation: gradientShift 12s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* الجسيمات العائمة في Hero */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(59,130,246,0.5);
+  border-radius: 50%;
+  animation: floatElement var(--duration, 8s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* عناصر ديكورية عائمة */
+.float-card {
+  animation: floatElement 6s ease-in-out infinite;
+}
+
+.float-card:nth-child(2) { animation-delay: -2s; }
+.float-card:nth-child(3) { animation-delay: -4s; }
+
+
+/* ============================================================
+   03. تأثيرات الكشف عند التمرير — Scroll Reveal
+   العناصر تبدأ مخفية وتظهر عند دخول نطاق الرؤية
+   ============================================================ */
+
+/* الحالة المخفية الأولية */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* حالة التكبير */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.6s ease,
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ظهور من اليمين */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease,
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ظهور من اليسار */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease,
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* الحالة المرئية — يضيفها JavaScript عند التمرير */
+.reveal.visible,
+.reveal-scale.visible,
+.reveal-right.visible,
+.reveal-left.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* تأخير متسلسل للبطاقات (Stagger) */
+.stagger-1 { transition-delay: 0.1s !important; }
+.stagger-2 { transition-delay: 0.2s !important; }
+.stagger-3 { transition-delay: 0.3s !important; }
+.stagger-4 { transition-delay: 0.4s !important; }
+.stagger-5 { transition-delay: 0.5s !important; }
+.stagger-6 { transition-delay: 0.6s !important; }
+
+
+/* ============================================================
+   04. تأثيرات التحويم المتقدمة — Advanced Hover Effects
+   ============================================================ */
+
+/* تأثير البريق عند التحويم على الأزرار */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -75%;      /* بداية من خارج الزر (RTL) */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.25) 50%,
+    transparent 60%
+  );
+  transform: skewX(-15deg);
+  transition: right 0.5s ease;
+}
+
+.btn-shimmer:hover::before {
+  right: 130%;     /* يمر عبر الزر */
+}
+
+/* تأثير الإطار المتوهج — Glow Border */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--gradient-blue-cyan);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glow-border:hover::after { opacity: 0.6; }
+
+/* تأثير الضوء المتبع للمؤشر — Spotlight (يتحكم به JS) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  /* الموضع يتحكم به JavaScript */
+  left: var(--mouse-x, 50%);
+  top:  var(--mouse-y, 50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before { opacity: 1; }
+
+/* تأثير الإطار المتحرك — Animated Border */
+.animated-border {
+  position: relative;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-cyan), var(--color-gold), var(--color-blue));
+  background-size: 300% 100%;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  /* Standard property for broader browser support */
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: gradientShift 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-border:hover::after { opacity: 1; }
+
+
+/* ============================================================
+   05. حركات المساعد الذكي — AI Widget Animations
+   ============================================================ */
+
+/* حركة كتابة النص (typing indicator) */
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 0.6rem 1rem;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-text-muted);
+  border-radius: 50%;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-8px); }
+}
+
+/* ظهور رسالة جديدة */
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ai-message {
+  animation: messageIn 0.3s ease both;
+}
+
+
+/* ============================================================
+   06. تأثيرات التحميل — Loading Effects
+   ============================================================ */
+
+/* شاشة التحميل الأولية */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-primary);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* شعار التحميل */
+.loader-logo {
+  height: 70px;
+  animation: scaleIn 0.5s ease;
+}
+
+/* شريط التحميل */
+.loader-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: var(--gradient-blue-cyan);
+  border-radius: 1px;
+  animation: loaderFill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loaderFill {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* نقاط التحميل الدوارة */
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(59,130,246,0.2);
+  border-top-color: var(--color-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+
+/* ============================================================
+   07. انتقالات الصفحة — Page Transitions
+   ============================================================ */
+
+/* غطاء الانتقال */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-primary);
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* ============================================================
+   08. تأثير نص العنوان المتحرك — Typewriter
+   ============================================================ */
+
+.typewriter-text {
+  border-left: 3px solid var(--color-blue);  /* RTL: نقطة الكتابة */
+  animation: blink 0.8s step-end infinite;
+  padding-left: 4px;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: var(--color-blue); }
+  50%       { border-color: transparent; }
+}
+
+
+/* ============================================================
+   09. تأثيرات الأرقام العداد — Counter Animation
+   ============================================================ */
+
+.counter-number {
+  display: inline-block;
+  animation: countUp 0.6s ease both;
+}
+
+
+/* ============================================================
+   10. تسطير العنوان المتحرك — Animated Underline
+   ============================================================ */
+
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background: var(--gradient-blue-cyan);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.animated-underline.visible::after,
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   11. تأثيرات تبويب الخدمات — Tab Switching
+   ============================================================ */
+
+.tab-content-enter {
+  animation: fadeInUp 0.4s ease both;
+}
+
+
+/* ============================================================
+   12. الإشعارات المنبثقة — Toast Notifications
+   ============================================================ */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  z-index: calc(var(--z-modal) + 100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  pointer-events: none;
+}
+
+.toast {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: slideInRight 0.4s ease, fadeOut 0.4s ease 3s forwards;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 320px;
+}
+
+.toast.success {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #22C55E;
+}
+
+.toast.error {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+}
+
+.toast.info {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-blue);
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(20px); }
+}

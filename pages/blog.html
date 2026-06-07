@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المدونة والمعرفة | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="اقرأ أحدث المقالات والنصائح في مجالات التسويق الرقمي، بناء الهوية البصرية، وتطوير مواقع الويب، تطبيقات الهواتف وحلول الذكاء الاصطناعي للأعمال.">
+  <meta name="keywords" content="مدونة تقنية, مقالات تسويق, نصائح برمجة, دليل الذكاء الاصطناعي, ريادة اعمال اليمن">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  <style>
+    .blog-shell::before, .blog-shell::after { content:""; position:absolute; inset:auto; width:220px; height:220px; border-radius:50%; filter:blur(70px); opacity:.12; pointer-events:none; }
+    .blog-shell::before { top:-40px; left:-40px; background: radial-gradient(circle, rgba(56,189,248,.35), transparent 65%); animation: drift 10s infinite alternate; }
+    .blog-shell::after { right:-40px; bottom:-40px; background: radial-gradient(circle, rgba(168,85,247,.25), transparent 65%); animation: drift 12s infinite alternate-reverse; }
+    .blog-shell { position:relative; overflow:hidden; }
+    .blog-note { border: 1px solid rgba(148,163,184,.14); background: linear-gradient(135deg, rgba(15,23,42,.85), rgba(30,41,59,.85)); border-radius: var(--radius-2xl); padding: 1.1rem 1.2rem; color: var(--color-text-secondary); }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(15,23,42,.35); }
+    .blog-card { transition: transform .35s, box-shadow .35s; }
+  </style>
+  
+  <style>
+    /* أنماط تصفية المدونة — Blog filtering options */
+    .blog-header-search {
+      max-width: 500px;
+      margin: var(--space-4) auto 0;
+      position: relative;
+    }
+    
+    .blog-search-input {
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: var(--text-sm);
+      outline: none;
+      transition: var(--transition-base);
+    }
+    
+    .blog-search-input:focus {
+      border-color: var(--color-blue);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-blue);
+    }
+    
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .blog-img-box {
+      aspect-ratio: 16/9;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .blog-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: white;
+    }
+    
+    .blog-tag.marketing { background: var(--color-cyan); }
+    .blog-tag.branding { background: var(--color-purple); }
+    .blog-tag.tech { background: var(--color-blue); }
+    .blog-tag.ai { background: var(--color-gold); }
+    
+    .blog-item.hidden {
+      display: none;
+    }
+
+    .blog-section-top {
+      padding-top: var(--space-4);
+    }
+
+    .blog-filters {
+      margin-bottom: var(--space-8);
+    }
+
+    .blog-card-icon {
+      font-size: 3.5rem;
+    }
+
+    .blog-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-card-meta,
+    .blog-card-text {
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      line-height: 1.7;
+    }
+
+    .blog-card-meta {
+      margin-bottom: 5px;
+    }
+
+    .blog-card-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .blog-card-text {
+      color: var(--color-text-secondary);
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+
+    .blog-card-link {
+      width: 100%;
+    }
+
+    .blog-footer {
+      background: #020617;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: var(--space-12) 0 var(--space-4);
+      color: var(--color-text-muted);
+    }
+
+    .blog-footer-grid {
+      margin-bottom: var(--space-8);
+    }
+
+    .blog-footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .blog-footer-logo {
+      height: 52px;
+    }
+
+    .blog-footer-brand {
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+
+    .blog-footer-desc {
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .blog-footer-heading {
+      color: var(--color-text-primary);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      font-size: var(--text-base);
+    }
+
+    .blog-footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      font-size: var(--text-sm);
+    }
+
+    .blog-footer-social-wrap {
+      margin-top: 10px;
+      display: flex;
+      gap: 15px;
+      font-size: 1.2rem;
+    }
+
+    .blog-footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: var(--text-xs);
+    }
+
+    .blog-social-svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link">أعمالنا</a>
+        <a href="about.html" class="nav-link">من نحن</a>
+        <a href="blog.html" class="nav-link active">المدونة</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- خلفية متناسقة في أعلى الصفحة -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">المعرفة والمدونة</span>
+      <h1 class="section-title reveal">رؤى وأفكار للمستقبل الرقمي</h1>
+      <p class="section-desc reveal">اطلع على مقالات حصرية ونصائح عملية يقدمها فريقنا لتطوير الهويات والبرمجيات للأعمال.</p>
+      <div class="section-divider"></div>
+      
+      <!-- شريط البحث السريع -->
+      <div class="blog-header-search reveal">
+        <input type="text" class="blog-search-input" id="blogSearch" placeholder="ابحث عن المقال الذي تريد قراءته...">
+      </div>
+    </div>
+  </section>
+
+  <!-- شبكة المقالات — Blog Grid Section -->
+  <section class="section blog-section-top blog-shell">
+    <div class="container">
+      
+      <!-- أزرار التصنيفات للمقالات -->
+      <div class="portfolio-filters reveal blog-filters" id="blogCategories">
+        <button class="portfolio-filter active" data-category="all">الكل</button>
+        <button class="portfolio-filter" data-category="marketing">التسويق</button>
+        <button class="portfolio-filter" data-category="branding">الهوية والتصميم</button>
+        <button class="portfolio-filter" data-category="tech">تطوير الويب والتطبيقات</button>
+        <button class="portfolio-filter" data-category="ai">الذكاء الاصطناعي</button>
+      </div>
+      
+      <div class="blog-note reveal" style="margin-bottom: var(--space-4);">
+        <strong>نصيحة اليوم:</strong> اكتب مقالاً مختصراً يجيب على سؤال واضح، ثم اربطه بحل عملي لعملائك؛ هذا يرفع نسبة التفاعل والاحتفاظ بالقراء.
+      </div>
+
+      <!-- شبكة بطاقات المقالات -->
+      <div class="grid-3" id="blogGrid">
+        
+        <!-- مقال 1: الهوية البصرية -->
+        <div class="blog-item reveal" data-tag="branding">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag branding">هوية وتصميم</span>
+              <span class="blog-card-icon">🎨</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 4 يونيو 2026 | بواسطة: نابل الغباري</span>
+              <h3 class="blog-title blog-card-title">أهمية الهوية البصرية في بناء ثقة المستهلك</h3>
+              <p class="blog-card-text">
+                كيف تساهم ألوان علامتك التجارية وتصميم شعارك في اتخاذ قرارات الشراء وبناء رابط وجداني طويل الأمد مع عملائك.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مقال 2: الذكاء الاصطناعي -->
+        <div class="blog-item reveal stagger-1" data-tag="ai">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag ai">الذكاء الاصطناعي</span>
+              <span class="blog-card-icon">🤖</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 2 يونيو 2026 | بواسطة: نابل الغباري</span>
+              <h3 class="blog-title blog-card-title">كيف تدمج الذكاء الاصطناعي في نظام شركتك؟</h3>
+              <p class="blog-card-text">
+                دليل مبسط حول أتمتة المهام اليومية باستخدام روبوتات المحادثة ونماذج الذكاء الاصطناعي لرفع كفاءة خدمة العملاء.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مقال 3: سرعة الموقع -->
+        <div class="blog-item reveal stagger-2" data-tag="tech">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag tech">تطوير ويب</span>
+              <span class="blog-card-icon">⚡</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 30 مايو 2026 | بواسطة: فريق سوفت</span>
+              <h3 class="blog-title blog-card-title">أثر سرعة تحميل الموقع على مبيعات متجرك</h3>
+              <p class="blog-card-text">
+                لماذا تخسر 40% من زوار موقعك إذا استغرق تحميله أكثر من 3 ثوانٍ، وكيف تحسن ترتيبك في جوجل بتطبيق نصائح التحسين الأساسية.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مقال 4: السوشيال ميديا -->
+        <div class="blog-item reveal" data-tag="marketing">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag marketing">تسويق رقمي</span>
+              <span class="blog-card-icon">📲</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 25 مايو 2026 | بواسطة: فريق التسويق</span>
+              <h3 class="blog-title blog-card-title">استراتيجيات كتابة المحتوى الإبداعي لجذب الجمهور</h3>
+              <p class="blog-card-text">
+                السر الكامن وراء منشورات السوشيال ميديا سريعة الانتشار وكيفية كتابة مقدمة مشوقة تجبر القارئ على قراءة التفاصيل.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مقال 5: تطبيقات الجوال -->
+        <div class="blog-item reveal stagger-1" data-tag="tech">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag tech">تطوير ويب</span>
+              <span class="blog-card-icon">📱</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 20 مايو 2026 | بواسطة: فريق سوفت</span>
+              <h3 class="blog-title blog-card-title">متى تحتاج شركتك إلى تطبيق جوال خاص؟</h3>
+              <p class="blog-card-text">
+                الفروقات الجوهرية بين الاكتفاء بموقع ويب متجاوب وبين برمجة تطبيق جوال للأندرويد و iOS، وحساب الجدوى الاستثمارية لذلك.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مقال 6: تصميم تجربة المستخدم UI/UX -->
+        <div class="blog-item reveal stagger-2" data-tag="branding">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box">
+              <span class="blog-tag branding">هوية وتصميم</span>
+              <span class="blog-card-icon">📐</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 15 مايو 2026 | بواسطة: نابل الغباري</span>
+              <h3 class="blog-title blog-card-title">أساسيات الـ UI/UX في تصميم واجهات الويب الحديثة</h3>
+              <p class="blog-card-text">
+                نصائح هندسية حول كيفية ترتيب العناصر في صفحتك الرئيسية لتسهيل الملاحة وتقليل معدل الارتداد وتحسين تجربة المستخدم.
+              </p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- مقال 7: تحسين SEO -->
+        <div class="blog-item reveal" data-tag="marketing">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box"><span class="blog-tag marketing">تسويق رقمي</span><span class="blog-card-icon">🔍</span></div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 10 مايو 2026 | بواسطة: فريق التسويق</span>
+              <h3 class="blog-title blog-card-title">كيف تنشئ محتوى يرفع ترتيب موقعك في البحث؟</h3>
+              <p class="blog-card-text">نصائح عملية لكتابة عناوين واضحة، وتجربة قارئ أفضل، وتوسيع نطاق الكلمات المفتاحية دون إغراق.</p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- مقال 8: أتمتة الأعمال -->
+        <div class="blog-item reveal stagger-1" data-tag="ai">
+          <div class="glass-card blog-card">
+            <div class="blog-img-box"><span class="blog-tag ai">الذكاء الاصطناعي</span><span class="blog-card-icon">⚙️</span></div>
+            <div class="blog-card-body">
+              <span class="blog-card-meta">📅 5 مايو 2026 | بواسطة: فريق الذكاء الاصطناعي</span>
+              <h3 class="blog-title blog-card-title">أتمتة المهام الروتينية دون فقدان الجودة</h3>
+              <p class="blog-card-text">اكتشف كيف يمكن للروبوتات والذكاء الاصطناعي تقليل الجهد اليدوي في خدمة العملاء والإشراف الإداري.</p>
+              <a href="#" class="btn btn-ghost btn-sm blog-card-link">اقرأ المزيد ➔</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer blog-footer">
+    <div class="container">
+      <div class="grid-4 blog-footer-grid">
+        <div class="blog-footer-column">
+          <div class="navbar-logo">
+            <img class="blog-footer-logo" src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+            <span class="navbar-brand-name blog-footer-brand">مجموعة الغباري</span>
+          </div>
+          <p class="blog-footer-desc">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 class="blog-footer-heading">خدماتنا الرقمية</h4>
+          <ul class="blog-footer-list">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="blog-footer-heading">صفحات الموقع</h4>
+          <ul class="blog-footer-list">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="blog-footer-heading">تواصل معنا</h4>
+          <ul class="blog-footer-list blog-footer-list-contact">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li class="blog-footer-social-wrap">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg class="blog-social-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg class="blog-social-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg class="blog-social-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg class="blog-social-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="blog-footer-bottom">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+
+    // كود تصفية مقالات المدونة والبحث
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('blogSearch');
+      const categoryButtons = document.querySelectorAll('#blogCategories .portfolio-filter');
+      const blogItems = document.querySelectorAll('.blog-item');
+      
+      let activeCategory = 'all';
+      let searchQuery = '';
+      
+      const filterBlogPosts = () => {
+        blogItems.forEach(item => {
+          const title = item.querySelector('.blog-title').textContent.toLowerCase();
+          const category = item.getAttribute('data-tag');
+          
+          const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+          const matchesSearch = title.includes(searchQuery);
+          
+          if (matchesCategory && matchesSearch) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      };
+      
+      // التصفية بالنقر على الفئة
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-category');
+          filterBlogPosts();
+        });
+      });
+      
+      // التصفية بالبحث النصي
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        filterBlogPosts();
+      });
+    });
+  </script>
+</body>
+</html>

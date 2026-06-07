@@ -1,0 +1,434 @@
+ALGHBARI ECOSYSTEM
+
+MASTER PROMPT V1
+
+==================================================
+PROJECT OVERVIEW
+==================================================
+
+Build a world-class digital ecosystem platform for Alghbari Group.
+
+The platform consists of two major divisions:
+
+1. Alghbari Marketing
+2. Alghbari Soft
+
+The project must combine:
+
+- Premium Branding
+- Marketing Services
+- Software Development Services
+- AI Integration
+- CRM Readiness
+- ERP Readiness
+- Accounting System Readiness
+- Client Portal Readiness
+- SaaS Scalability
+
+The final result should look like a combination of:
+
+Apple
+OpenAI
+Stripe
+Linear
+Framer
+Notion
+
+while maintaining a unique Arabic premium business identity.
+
+==================================================
+DESIGN PHILOSOPHY
+==================================================
+
+The design must feel:
+
+Premium
+Modern
+Innovative
+Trustworthy
+Creative
+Intelligent
+Futuristic
+
+Visitors should immediately feel:
+
+- Professionalism
+- High Quality
+- Innovation
+- Reliability
+- Digital Excellence
+
+==================================================
+VISUAL STYLE
+==================================================
+
+Design Direction:
+
+Premium Technology Company
+Creative Digital Agency
+AI Inspired Platform
+
+Visual Style:
+
+- Dark Luxury Theme
+- Glassmorphism
+- Aurora Backgrounds
+- Smooth Gradients
+- Interactive Cards
+- Premium Typography
+- High-end UI
+
+==================================================
+COLOR SYSTEM
+==================================================
+
+Background:
+#020617
+
+Secondary Background:
+#0F172A
+
+Surface:
+#111827
+
+Primary Blue:
+#3B82F6
+
+Cyan Accent:
+#06B6D4
+
+Luxury Gold:
+#F59E0B
+
+Primary Text:
+#F8FAFC
+
+Secondary Text:
+#CBD5E1
+
+==================================================
+TYPOGRAPHY
+==================================================
+
+Arabic:
+
+Alexandria
+
+English:
+
+Geist
+
+==================================================
+ANIMATION SYSTEM
+==================================================
+
+Use modern premium animations:
+
+- Scroll Reveal
+- Fade In
+- Slide Up
+- Scale In
+- Stagger Animations
+- Parallax Motion
+- Floating Elements
+- Animated Counters
+- Magnetic Buttons
+- Spotlight Cursor
+- Smooth Page Transitions
+
+Animations must be smooth and professional.
+
+==================================================
+TECHNOLOGY STACK
+==================================================
+
+Frontend:
+
+Next.js 15
+TypeScript
+Tailwind CSS
+Shadcn UI
+Framer Motion
+
+Backend:
+
+Supabase
+
+Database:
+
+PostgreSQL
+
+Authentication:
+
+Supabase Auth
+
+Storage:
+
+Supabase Storage
+
+Deployment:
+
+Vercel
+
+==================================================
+WEBSITE STRUCTURE
+==================================================
+
+Create the following pages:
+
+Home
+Services
+Portfolio
+About
+Blog
+FAQ
+Contact
+
+==================================================
+HOME PAGE
+==================================================
+
+Include:
+
+Hero Section
+Statistics
+Services Overview
+Featured Projects
+Why Choose Us
+Work Process
+Testimonials
+FAQ Preview
+Call To Action
+
+Hero Section must include:
+
+Headline
+Subheadline
+Two CTA Buttons
+Animated Background
+Glass Cards
+Trust Indicators
+
+==================================================
+SERVICES PAGE
+==================================================
+
+Separate services into:
+
+Alghbari Marketing
+
+- Logo Design
+- Brand Identity
+- Social Media
+- Content Creation
+- Advertising
+
+Alghbari Soft
+
+- Website Development
+- Mobile Apps
+- Accounting Systems
+- ERP
+- CRM
+- AI Solutions
+
+==================================================
+PORTFOLIO PAGE
+==================================================
+
+Create portfolio filtering.
+
+Categories:
+
+Logos
+Branding
+Social Media
+Websites
+Mobile Apps
+Software
+
+Include:
+
+Hover Effects
+Lightbox
+Smooth Transitions
+
+==================================================
+ABOUT PAGE
+==================================================
+
+Include:
+
+Company Story
+Vision
+Mission
+Values
+Founder Story
+Future Vision
+
+==================================================
+BLOG PAGE
+==================================================
+
+SEO Optimized
+
+Categories:
+
+Marketing
+Branding
+Technology
+AI
+Business
+Software
+
+==================================================
+CONTACT PAGE
+==================================================
+
+Include:
+
+Contact Form
+WhatsApp Button
+Email
+Social Links
+
+==================================================
+ADMIN DASHBOARD
+==================================================
+
+Create a complete dashboard.
+
+Modules:
+
+Dashboard
+Clients
+Projects
+Services
+Portfolio
+Blog
+Leads
+Messages
+Testimonials
+AI Assistant
+Settings
+
+==================================================
+DATABASE STRUCTURE
+==================================================
+
+Create all database tables according to:
+
+Users
+Clients
+Leads
+Projects
+Services
+Messages
+Testimonials
+Portfolio
+BlogPosts
+Appointments
+Invoices
+Payments
+AIConversations
+SupportTickets
+
+==================================================
+AI ASSISTANT
+==================================================
+
+Create a floating AI Assistant.
+
+Capabilities:
+
+Answer FAQs
+Recommend Services
+Collect Leads
+Guide Visitors
+
+Knowledge Source:
+
+Company Information
+Services
+Policies
+FAQ
+
+==================================================
+CLIENT PORTAL
+==================================================
+
+Prepare architecture for:
+
+Client Login
+Project Tracking
+Invoices
+Support Tickets
+File Sharing
+
+==================================================
+SEO REQUIREMENTS
+==================================================
+
+Implement:
+
+Meta Tags
+Open Graph
+Structured Data
+Robots.txt
+Sitemap.xml
+Canonical URLs
+Schema Markup
+
+==================================================
+PERFORMANCE REQUIREMENTS
+==================================================
+
+Target:
+
+95+ Lighthouse Score
+
+Optimize:
+
+Images
+Fonts
+Scripts
+Caching
+
+==================================================
+ACCESSIBILITY
+==================================================
+
+WCAG Compliance
+
+Keyboard Navigation
+
+Screen Reader Support
+
+Responsive Design
+
+==================================================
+MOBILE EXPERIENCE
+==================================================
+
+Mobile First Design
+
+Tablet Optimized
+
+Desktop Optimized
+
+==================================================
+DELIVERABLE
+==================================================
+
+Generate a production-ready project with:
+
+Modern UI
+Responsive Design
+Scalable Architecture
+SEO Optimization
+AI Readiness
+Future SaaS Expansion Readiness
+
+==================================================
+END OF MASTER PROMPT
+==================================================

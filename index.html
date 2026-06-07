@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجموعة الغباري الرقمية | Alghbari Group</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="منظومة رقمية متكاملة لخدمات التسويق، تصميم الهوية البصرية، وتطوير البرمجيات وتطبيقات الجوال وحلول الذكاء الاصطناعي في اليمن والوطن العربي.">
+  <meta name="keywords" content="مجموعة الغباري, الغباري للتسويق, الغباري سوفت, تطوير مواقع, تصميم هويات, تطبيقات جوال, ذكاء اصطناعي, صنعاء اليمن">
+  <meta name="author" content="Nabil Alghbari">
+  
+  <!-- بطاقات مشاركة السوشيال ميديا — Open Graph Meta Tags -->
+  <meta property="og:title" content="مجموعة الغباري الرقمية | نحو مستقبل أكثر احترافية وذكاءً">
+  <meta property="og:description" content="منظومة رقمية متكاملة لتقديم أرقى خدمات التسويق وتطوير البرمجيات وحلول الذكاء الاصطناعي.">
+  <meta property="og:image" content="assets/images/logo/logo-main.png">
+  <meta property="og:type" content="website">
+  
+  <!-- استدعاء الخطوط الحديثة من جوجل — Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- استدعاء ملفات التنسيق — CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <!-- أيقونة الموقع المفضلة — Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo/logo-icon.png">
+  <style>
+    /* Moved inline styles from HTML to here to avoid inline-style warnings */
+    #faq-preview { background: var(--color-bg-secondary); }
+    /* Section backgrounds moved from inline styles */
+    #process { background: var(--color-bg-secondary); }
+
+    /* Navbar action buttons previously inline-styled */
+    #themeToggleBtn, #langToggleBtn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--color-text-primary); margin-inline-end: 10px; }
+    #langToggleBtn { border: 1px solid var(--Color-text-secondary, var(--color-text-secondary)); border-radius: 5px; font-size: 0.9rem; padding: 2px 6px; margin-inline-end: 15px; }
+
+    /* Glass card common styles moved from inline */
+    .glass-card { padding: 2rem; }
+    .glass-card .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .glass-card h4 { font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem; }
+    .glass-card p { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+    /* Testimonial avatar moved from inline */
+    .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; margin-inline-end: 0.75rem; }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل الأولية للموقع — Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي — Navbar Section -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      
+      <!-- الشعار واسم العلامة -->
+      <a href="index.html" class="navbar-logo">
+        <img src="assets/images/logo/logo-main.png" alt="Alghbari Group Logo" id="navLogo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      
+      <!-- روابط القائمة الرئيسية -->
+      <nav class="navbar-nav">
+        <a href="index.html" class="nav-link active" data-i18n="nav_home">الرئيسية</a>
+        <a href="pages/services.html" class="nav-link" data-i18n="nav_services">خدماتنا</a>
+        <a href="pages/portfolio.html" class="nav-link" data-i18n="nav_portfolio">أعمالنا</a>
+        <a href="pages/about.html" class="nav-link" data-i18n="nav_about">من نحن</a>
+        <a href="pages/blog.html" class="nav-link" data-i18n="nav_blog">المدونة</a>
+        <a href="pages/faq.html" class="nav-link" data-i18n="nav_faq">الأسئلة الشائعة</a>
+        <a href="pages/contact.html" class="nav-link" data-i18n="nav_contact">اتصل بنا</a>
+      </nav>
+      
+      <!-- أزرار الإجراءات السريعة والقائمة للهاتف -->
+      <div class="navbar-actions">
+        <button type="button" id="themeToggleBtn" onclick="toggleTheme()" class="btn-icon" aria-label="تبديل المظهر" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--color-text-primary); margin-inline-end: 10px;">🌓</button>
+        <button type="button" id="langToggleBtn" onclick="toggleLanguage()" class="btn-icon" aria-label="تبديل اللغة" style="background: none; border: 1px solid var(--color-text-secondary); border-radius: 5px; font-size: 0.9rem; cursor: pointer; color: var(--color-text-primary); margin-inline-end: 15px; padding: 2px 6px;">EN</button>
+        <a href="pages/contact.html" class="btn btn-primary btn-sm btn-shimmer" data-i18n="nav_cta">ابدأ مشروعك</a>
+        <button type="button" class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+    </div>
+  </header>
+
+  <!-- القسم الرئيسي للموقع — Hero Section -->
+  <section class="hero" id="hero">
+    <!-- خلفيات وأورورا متحركة وثلاثية الأبعاد -->
+    <div class="hero-aurora"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-particles"></div>
+    
+    <div class="container">
+      <div class="hero-content">
+        
+        <!-- شارة ترحيبية علوية -->
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot"></span>
+          <span data-i18n="hero_badge">مستقبلك الرقمي يبدأ هنا</span>
+        </div>
+        
+        <!-- العنوان الإعلاني الضخم -->
+        <h1 class="hero-title reveal">
+          <span data-i18n="hero_title_1">نحو مستقبل رقمي أكثر</span><br>
+          <span class="gradient-text" data-i18n="hero_title_2">احترافية وذكاءً</span>
+        </h1>
+        
+        <!-- النص التسويقي التوضيحي -->
+        <p class="hero-subtitle reveal" data-i18n="hero_desc">
+          منظومة رقمية رائدة تدمج بين إبداع التسويق البصري وحلول البرمجيات وهندسة الذكاء الاصطناعي لبناء علامات تجارية تفوق التوقعات.
+        </p>
+        
+        <!-- أزرار البدء والتصفح -->
+        <div class="hero-actions reveal">
+          <a href="pages/contact.html" class="btn btn-primary btn-lg btn-shimmer btn-magnetic" data-i18n="hero_btn_start">ابدأ مشروعك الآن</a>
+          <a href="pages/portfolio.html" class="btn btn-ghost btn-lg btn-magnetic" data-i18n="hero_btn_portfolio">استعرض أعمالنا</a>
+        </div>
+        
+        <!-- بطاقات إحصائيات سريعة في الهيرو -->
+        <div class="hero-stats reveal">
+          <div class="hero-stat-card float-card">
+            <span class="hero-stat-number counter-number" data-target="50" data-suffix="+">0</span>
+            <span class="hero-stat-label" data-i18n="stat_projects">مشروع ناجح</span>
+          </div>
+          <div class="hero-stat-card float-card">
+            <span class="hero-stat-number counter-number" data-target="100" data-suffix="+">0</span>
+            <span class="hero-stat-label" data-i18n="stat_design">تصميم وهوية</span>
+          </div>
+          <div class="hero-stat-card float-card">
+            <span class="hero-stat-number counter-number" data-target="1000" data-suffix="+">0</span>
+            <span class="hero-stat-label" data-i18n="stat_hours">ساعة عمل</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- مؤشر النزول للأسفل -->
+    <a href="#stats" class="hero-scroll">
+      <span data-i18n="scroll_down">تصفح المزيد</span>
+      <div class="hero-scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- قسم الإحصائيات والأرقام — Stats Section -->
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <div class="stat-item reveal">
+          <span class="stat-number counter-number" data-target="98" data-suffix="%">0</span>
+          <span class="stat-label">نسبة رضا العملاء</span>
+        </div>
+        
+        <div class="stat-item reveal stagger-1">
+          <span class="stat-number counter-number" data-target="15" data-suffix="+">0</span>
+          <span class="stat-label">خدمة رقمية متميزة</span>
+        </div>
+        
+        <div class="stat-item reveal stagger-2">
+          <span class="stat-number counter-number" data-target="24" data-suffix="/7">0</span>
+          <span class="stat-label">دعم فني واستشاري</span>
+        </div>
+        
+        <div class="stat-item reveal stagger-3">
+          <span class="stat-number counter-number" data-target="100" data-suffix="%">0</span>
+          <span class="stat-label">التزام تام بالجودة</span>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم نظرة عامة على خدمات المنظومة — Services Overview -->
+  <section class="section" id="services-overview">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">تكامل إبداعي وتقني</span>
+        <h2 class="section-title reveal">أجنحة المنظومة الرقمية</h2>
+        <p class="section-desc reveal">نجمع بين ريشة الفنان وشفرة المبرمج لنحلق بعملك في الفضاء الرقمي المتكامل.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="grid-2">
+        
+        <!-- الجناح الأول: الغباري للتسويق -->
+        <div class="glass-card spotlight-card reveal-right">
+          <div style="padding: 2.5rem;">
+            <div class="service-icon-wrapper" style="background: rgba(6, 182, 212, 0.1); color: var(--color-cyan); font-size: 2.5rem; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-3);">
+              🎨
+            </div>
+            <h3 style="font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-2);">الغباري للتسويق</h3>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4); line-height: 1.8;">
+              نمنح علامتك التجارية صوتاً إبداعياً وهوية بصرية مذهلة تحفر في أذهان عملائك، مع إدارة متكاملة لحسابات التواصل لتصل لجمهورك المثالي.
+            </p>
+            <ul style="color: var(--color-text-muted); margin-bottom: var(--space-4); display: grid; gap: 8px;">
+              <li>• تصميم الشعارات والهويات البصرية الكاملة</li>
+              <li>• إدارة قنوات السوشيال ميديا وصناعة المحتوى</li>
+              <li>• تصاميم الموشن جرافيكس الاحترافية</li>
+              <li>• إعداد وحمل الإعلانات الرقمية الممولة</li>
+            </ul>
+            <a href="pages/services.html?tab=marketing" class="btn btn-ghost btn-sm" style="width: 100%;">استكشف خدمات التسويق</a>
+          </div>
+        </div>
+        
+        <!-- الجناح الثاني: الغباري سوفت -->
+        <div class="glass-card gold spotlight-card reveal-left">
+          <div style="padding: 2.5rem;">
+            <div class="service-icon-wrapper" style="background: rgba(245, 158, 11, 0.1); color: var(--color-gold); font-size: 2.5rem; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-3);">
+              🤖
+            </div>
+            <h3 style="font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-2);">الغباري سوفت</h3>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4); line-height: 1.8;">
+              نصيغ المستقبل بأكواد قوية، من تطوير المواقع فائقة السرعة وتطبيقات الهواتف المتميزة، إلى الأنظمة الإدارية والمحاسبية وحلول الذكاء الاصطناعي للأعمال.
+            </p>
+            <ul style="color: var(--color-text-muted); margin-bottom: var(--space-4); display: grid; gap: 8px;">
+              <li>• تصميم وتطوير مواقع الويب المتجاوبة وSEO</li>
+              <li>• برمجة تطبيقات الـ iOS والأندرويد المخصصة</li>
+              <li>• حلول برمجية، أنظمة محاسبية وأنظمة ERP</li>
+              <li>• أتمتة الأنظمة وبناء بوتات الذكاء الاصطناعي</li>
+            </ul>
+            <a href="pages/services.html?tab=soft" class="btn btn-ghost btn-sm" style="width: 100%; border-color: rgba(245, 158, 11, 0.3); color: var(--color-gold);">استكشف الخدمات التقنية</a>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم معرض المشاريع المميزة — Featured Projects -->
+  <section class="section" id="portfolio-preview" style="background: var(--color-bg-secondary);">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">شاهد إبداعنا</span>
+        <h2 class="section-title reveal">أعمال نفخر بها</h2>
+        <p class="section-desc reveal">مقتطفات من رحلتنا في تحويل الأفكار إلى علامات تجارية ناجحة ومنصات برمجية ذكية.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <!-- شبكة من 3 بطاقات للمشاريع -->
+      <div class="grid-3" style="margin-bottom: var(--space-6);">
+        
+        <!-- مشروع 1: هوية بصرية -->
+        <div class="portfolio-item reveal" style="border-radius: var(--radius-xl); overflow: hidden;">
+          <div class="portfolio-card">
+            <!-- استخدام صورة بديلة إبداعية حتى توفير الصور الأصلية -->
+            <img src="assets/images/portfolio/logos/alsm-almlaki-logo.png" alt="تصميم هوية بصرية لمؤسسة رائدة" style="background: linear-gradient(135deg, #1e293b, #0f172a); padding: 4rem; width: 100%; height: 260px; object-fit: contain;">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">هوية الشركة الملكية</h3>
+              <p class="portfolio-category">تصميم هوية بصرية | الغباري للتسويق</p>
+              <a href="pages/portfolio.html" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 2: تطوير موقع ويب -->
+        <div class="portfolio-item reveal stagger-1" style="border-radius: var(--radius-xl); overflow: hidden;">
+          <div class="portfolio-card">
+            <img src="assets/images/portfolio/websites/alhabaitravel.png" alt="موقع متجر إلكتروني متكامل" style="background: linear-gradient(135deg, #0f172a, #020617); padding: 4rem; width: 100%; height: 260px; object-fit: contain;">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">موقع الحبابي للسفريات</h3>
+              <p class="portfolio-category">تطوير مواقع الويب | الغباري سوفت</p>
+              <a href="pages/portfolio.html" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 3: تطبيق جوال -->
+        <div class="portfolio-item reveal stagger-2" style="border-radius: var(--radius-xl); overflow: hidden;">
+          <div class="portfolio-card">
+            <img src="assets/images/portfolio/websites/soft.png" alt="تطبيق ذكي للأعمال" style="background: linear-gradient(135deg, #1e1b4b, #311042); padding: 4rem; width: 100%; height: 260px; object-fit: contain;">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">نظام الغباري سوفت الإداري</h3>
+              <p class="portfolio-category">تطبيقات الجوال | الغباري سوفت</p>
+              <a href="pages/portfolio.html" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div style="text-align: center;">
+        <a href="pages/portfolio.html" class="btn btn-ghost btn-lg btn-magnetic">تصفح كافة أعمالنا</a>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم لماذا تختارنا — Why Choose Us -->
+  <section class="section" id="why-us">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">لماذا نحن؟</span>
+        <h2 class="section-title reveal">أسباب تجعلنا شريكك المثالي</h2>
+        <p class="section-desc reveal">نهجنا يرتكز على الدمج بين القيمة المضافة لعلامتك والتصميم التقني الدقيق.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="grid-3">
+        
+        <div class="glass-card reveal" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">🤝</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">تكامل الخدمات</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">نغنيك عن تشتيت جهودك مع عدة شركات؛ هنا تجد المصمم، المسوق، والمبرمج تحت سقف واحد.</p>
+        </div>
+        
+        <div class="glass-card reveal stagger-1" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">🎯</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">التركيز على العميل</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">مشاريعنا تصمم بدقة متناهية بناءً على أهداف عملك الخاص ورغبات جمهورك المستهدف.</p>
+        </div>
+        
+        <div class="glass-card reveal stagger-2" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">⚡</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">سرعة وأمان</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">نبني مواقعنا وأنظمتنا بأحدث لغات البرمجة المستقرة لنضمن سرعة استثنائية وحماية قصوى.</p>
+        </div>
+        
+        <div class="glass-card reveal" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">💡</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">إبداع بلا حدود</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">نبتعد تماماً عن القوالب الجاهزة والتقليدية ونبني لعلامتك حضوراً فريداً ومميزاً.</p>
+        </div>
+        
+        <div class="glass-card reveal stagger-1" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">🤖</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">حلول مدعومة بالذكاء</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">ندمج تقنيات الذكاء الاصطناعي وأتمتة العمليات في المواقع والأنظمة لزيادة الفعالية وسرعة الإنجاز.</p>
+        </div>
+        
+        <div class="glass-card reveal stagger-2" style="padding: 2rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 1rem;">📊</div>
+          <h4 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.5rem;">تحليلات وتقارير دورية</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">ندعم كل حملاتنا وخطواتنا بأرقام دقيقة وإحصائيات تكشف لك نمو وعائدات مشروعك باستمرار.</p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم خطوات ومراحل العمل — Work Process Section -->
+  <section class="section" id="process">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">كيف نعمل؟</span>
+        <h2 class="section-title reveal">رحلة بناء مشروعك</h2>
+        <p class="section-desc reveal">خطوات واضحة ومدروسة نخطوها معاً للوصول بمشروعك من الفكرة إلى منصة النجاح.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <!-- هيكل متسلسل لمراحل العمل -->
+      <div class="process-timeline">
+        
+        <div class="process-step reveal">
+          <div class="process-num">01</div>
+          <div class="process-content">
+            <h4>التخطيط والاستشارة</h4>
+            <p>نجلس معك لنفهم فكرة مشروعك، احتياجاتك، ودراسة الجمهور والمنافسين لرسم خارطة الطريق.</p>
+          </div>
+        </div>
+        
+        <div class="process-step reveal stagger-1">
+          <div class="process-num">02</div>
+          <div class="process-content">
+            <h4>التصميم والنمذجة</h4>
+            <p>نقوم بابتكار واجهات المستخدم (UI/UX) وهيكل الهويات البصرية للوصول إلى تصميم ينال رضاك بالكامل.</p>
+          </div>
+        </div>
+        
+        <div class="process-step reveal stagger-2">
+          <div class="process-num">03</div>
+          <div class="process-content">
+            <h4>التطوير والبرمجة</h4>
+            <p>يقوم مهندسو البرمجيات بكتابة الأكواد البرمجية وتحويل التصاميم إلى مواقع وتطبيقات تفاعلية سريعة.</p>
+          </div>
+        </div>
+        
+        <div class="process-step reveal stagger-3">
+          <div class="process-num">04</div>
+          <div class="process-content">
+            <h4>الفحص والاختبار</h4>
+            <p>نقوم بإجراء فحوصات دقيقة للأمان، سرعة الاستجابة، وتجربة الاستخدام للتأكد من خلوه تماماً من الأخطاء.</p>
+          </div>
+        </div>
+        
+        <div class="process-step reveal stagger-4">
+          <div class="process-num">05</div>
+          <div class="process-content">
+            <h4>الإطلاق والدعم</h4>
+            <p>نطلق مشروعك للعلن ونوفر التدريب الكامل لفريقك مع دعم فني مستمر لضمان استقرار وتطور المنصة.</p>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم آراء العملاء والشهادات — Testimonials Section -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">قالوا عنا</span>
+        <h2 class="section-title reveal">شركاء النجاح يتحدثون</h2>
+        <p class="section-desc reveal">نفخر بثقة عملائنا ونعتبر نجاحهم هو النجاح الحقيقي لمنظومتنا الرقمية.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <!-- كاروسيل لآراء العملاء -->
+      <div class="testimonials-carousel reveal">
+        
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "تعاملنا مع مجموعة الغباري في بناء نظام ERP وتصميم موقعنا الإلكتروني، وكان العمل فوق التوقعات. دقة في المواعيد، واحترافية عالية في الأداء والدعم المستمر."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: var(--color-blue);">أ</div>
+            <div>
+              <h4>أحمد الحبيشي</h4>
+              <span>مدير عام — شركة آفاق للتجارة</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "فريق مبدع جداً في تصاميم الهوية وإدارة السوشيال ميديا. استطاعوا تحويل فكرتنا إلى علامة تجارية حية جذبت لنا آلاف العملاء في وقت قياسي."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: var(--color-cyan);">م</div>
+            <div>
+              <h4>منى عبد القادر</h4>
+              <span>رئيسة قسم التسويق — مؤسسة جود</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم الأسئلة الشائعة السريعة — Quick FAQ Section -->
+  <section class="section" id="faq-preview">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">هل لديك استفسار؟</span>
+        <h2 class="section-title reveal">الأسئلة الشائعة</h2>
+        <p class="section-desc reveal">أجوبة سريعة لأكثر التساؤلات طرحاً حول خدماتنا وكيفية العمل معنا.</p>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="accordion" style="max-width: 800px; margin: 0 auto;">
+        
+        <div class="accordion-item reveal">
+          <button class="accordion-header" id="faqHeader1">
+            <span>ما هي الخدمات الأساسية التي تقدمها مجموعة الغباري؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>نحن نقدم خدمات رقمية شاملة تنقسم إلى مسارين: التسويق (تصميم شعارات، هويات، صناعة محتوى، موشن جرافيكس، وإعلانات) والبرمجة (مواقع ويب، تطبيقات، أنظمة محاسبية، وحلول الذكاء الاصطناعي).</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item reveal stagger-1">
+          <button class="accordion-header" id="faqHeader2">
+            <span>كيف يمكنني طلب خدمة أو استشارة مجانية؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>يمكنك حجز استشارة مجانية بالضغط على زر "ابدأ مشروعك" وتعبئة البيانات في صفحة التواصل، أو التحدث مباشرة مع المساعد الذكي العائم أسفل الشاشة، أو عبر الواتساب مباشرة على الرقم +967 770104005.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item reveal stagger-2">
+          <button class="accordion-header" id="faqHeader3">
+            <span>هل تقدمون الدعم الفني بعد تسليم المشاريع؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>نعم، نلتزم بتقديم دعم فني مجاني ومستمر لفترة محددة بعد تسليم أي مشروع (تختلف المدة حسب حجم النظام أو الموقع)، لضمان استقرار العمل وتدريب فريقك على إدارة المنصة.</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div style="text-align: center; margin-top: var(--space-4);">
+        <a href="pages/faq.html" class="btn btn-ghost btn-sm">مشاهدة كافة الأسئلة الشائعة</a>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم الدعوة لاتخاذ إجراء — CTA Section -->
+  <section class="section reveal-scale" id="cta-section">
+    <div class="container cta-container">
+      <h2>هل لديك فكرة مشروع ترغب بتنفيذها؟</h2>
+      <p>
+        احجز جلستك الاستشارية المجانية اليوم مع نبيل الغباري وفريق المنظومة لنناقش فكرتك ونرسم لك خطة تنفيذ متكاملة وعرض سعر تنافسي.
+      </p>
+      <div class="flex-center cta-actions">
+        <a href="pages/contact.html" class="btn btn-gold btn-lg btn-shimmer btn-magnetic">احجز استشارتك المجانية الآن</a>
+        <a href="https://wa.me/967770104005" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg btn-magnetic">
+          تواصل معنا عبر واتساب 💬
+        </a>
+      </div>
+    </div>
+    <div class="cta-glow" aria-hidden="true"></div>
+  </section>
+
+  <!-- تذييل الصفحة — Footer Section -->
+  <style>
+    /* Moved inline footer styles here to satisfy linting */
+    #footer.footer {
+      background: #020617;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: var(--space-12) 0 var(--space-4);
+      color: var(--color-text-muted);
+    }
+    /* CTA section styles moved from inline attributes */
+    #cta-section {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: var(--space-8) 0;
+    }
+    #cta-section .cta-container { position: relative; z-index: 2; }
+    #cta-section h2 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); font-weight: 800; margin-bottom: var(--space-2); }
+    #cta-section p { color: var(--color-text-secondary); max-width: 650px; margin: 0 auto var(--space-4); font-size: var(--text-lg); line-height: 1.8; }
+    #cta-section .cta-actions { gap: var(--space-2); flex-wrap: wrap; }
+    .cta-glow { position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%); filter: blur(50px); }
+  </style>
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        
+        <!-- عمود الشعار والتعريف -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <div class="navbar-logo" style="margin-bottom: var(--space-1);">
+            <img src="assets/images/logo/logo-main.png" alt="Alghbari Group Logo" style="height: 52px;">
+            <span class="navbar-brand-name" style="font-size: var(--text-lg); font-weight: 700;">مجموعة الغباري</span>
+          </div>
+          <p style="font-size: var(--text-sm); line-height: 1.8;">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        
+        <!-- عمود روابط سريعة للخدمات -->
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">خدماتنا الرقمية</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="pages/services.html?tab=marketing" style="transition: var(--transition-fast);">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="pages/services.html?tab=marketing" style="transition: var(--transition-fast);">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="pages/services.html?tab=soft" style="transition: var(--transition-fast);">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="pages/services.html?tab=soft" style="transition: var(--transition-fast);">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="pages/services.html?tab=soft" style="transition: var(--transition-fast);">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        
+        <!-- عمود روابط الصفحات -->
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">صفحات الموقع</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="pages/services.html">خدمات المنظومة</a></li>
+            <li><a href="pages/portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="pages/about.html">قصتنا ومن نحن</a></li>
+            <li><a href="pages/blog.html">المدونة والمقالات</a></li>
+            <li><a href="pages/contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        
+        <!-- عمود معلومات التواصل -->
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">تواصل معنا</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm);">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li style="margin-top: 10px; display: flex; gap: 15px; font-size: 1.2rem;">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <!-- السطر الأخير لحقوق النشر -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: var(--text-xs);">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت التفاعلية — JavaScript Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة بالكامل
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) {
+        loader.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

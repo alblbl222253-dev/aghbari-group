@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض الأعمال | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="تصفح معرض أعمال ومشاريع مجموعة الغباري للتسويق والبرمجيات: تصميم هويات بصرية، شعارات مبتكرة، تطبيقات جوال ذكية، ومواقع ويب إبداعية.">
+  <meta name="keywords" content="معرض أعمال, بورتفوليو, مشاريع, شعارات مصممة, تطبيقات مبرمجة, مواقع ويب">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  
+  <style>
+    /* تنسيق مبدل التصفية — Portfolio Filters styling */
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+    
+    .portfolio-filter {
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      cursor: pointer;
+      transition: var(--transition-bounce);
+    }
+    
+    .portfolio-filter:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--color-text-primary);
+    }
+    
+    .portfolio-filter.active {
+      background: var(--gradient-blue-cyan);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* شبكة البورتفوليو التفاعلية */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      transition: all 0.5s ease;
+    }
+    
+    .portfolio-item {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    
+    .portfolio-item.hidden {
+      display: none;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    
+    /* تصميم بطاقات المعرض */
+    .project-card-wrapper {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .project-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    .project-card-wrapper:hover .project-image-placeholder {
+      transform: scale(1.08);
+    }
+    
+    .project-placeholder-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-logo-watermark {
+      height: 50px;
+      opacity: 0.15;
+      margin-top: 15px;
+      object-fit: contain;
+    }
+    /* Move inline image styles to reusable classes to avoid inline styles */
+    .project-image-placeholder img,
+    .project-card-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 2rem;
+      display: block;
+    }
+    .project-image-placeholder.no-padding {
+      padding: 0;
+    }
+    .project-image-placeholder.bg-gradient-1 {
+      background: linear-gradient(135deg, #111827, #1f2937);
+    }
+    .project-image-placeholder.bg-gradient-2 {
+      background: linear-gradient(135deg, #0f172a, #111827);
+    }
+    .project-image-placeholder.bg-gradient-3 {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+    .project-image-placeholder.bg-gradient-4 {
+      background: linear-gradient(135deg, #022329, #083344);
+    }
+    .project-image-placeholder.bg-gradient-5 {
+      background: linear-gradient(135deg, #581c0c, #2d0b03);
+    }
+    .project-image-placeholder.bg-gradient-6 {
+      background: linear-gradient(135deg, #064e3b, #022c22);
+    }
+    /* Footer inline style replacements */
+    .footer-contact-heading {
+      color: var(--color-text-primary);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      font-size: var(--text-base);
+    }
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+    }
+    .footer-contact-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 15px;
+      font-size: 1.2rem;
+    }
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      display: inline-block;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: var(--text-xs);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link active">أعمالنا</a>
+        <a href="about.html" class="nav-link">من نحن</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- العنوان الترويجي العلوي للمعرض -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">أعمالنا ومشاريعنا</span>
+      <h1 class="section-title reveal">أفكار تحولت إلى واقع ملموس</h1>
+      <p class="section-desc reveal">استكشف نماذج من أعمالنا الإبداعية والحلول البرمجية التي قمنا بتطويرها لعملائنا في مختلف المجالات.</p>
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+  <!-- قسم التصفية والشبكة — Filter & Grid Section -->
+  <style>
+    /* Moved inline style to class to avoid inline styles */
+    .section--pt-4 { padding-top: var(--space-4); }
+  </style>
+  <section class="section section--pt-4">
+    <div class="container">
+      
+      <!-- أزرار تصفية المشاريع -->
+      <div class="portfolio-filters reveal">
+        <button class="portfolio-filter active" data-filter="all">الكل</button>
+        <button class="portfolio-filter" data-filter="logos">الشعارات</button>
+        <button class="portfolio-filter" data-filter="branding">الهوية البصرية</button>
+        <button class="portfolio-filter" data-filter="social">السوشيال ميديا</button>
+        <button class="portfolio-filter" data-filter="web">المواقع</button>
+        <button class="portfolio-filter" data-filter="apps">التطبيقات</button>
+        <button class="portfolio-filter" data-filter="software">البرمجيات</button>
+      </div>
+      
+      <!-- شبكة بطاقات البورتفوليو -->
+      <div class="portfolio-grid" id="portfolioGrid">
+        
+        <!-- مشروع 1: شعار شموخ -->
+        <div class="portfolio-item reveal" data-category="logos">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-1" >
+              <img src="../assets/images/portfolio/logos/alsm-almlaki-logo.png" alt="شعار صالة السمو الملكي " class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">شعار صالة السمو الملكي  الاستثمارية</h3>
+              <p class="portfolio-category">تصميم شعارات | الغباري للتسويق</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 2: موقع تمكين -->
+        <div class="portfolio-item reveal stagger-1" data-category="web">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-2" >
+              <img src="../assets/images/portfolio/websites/alhabaitravel.png" alt=" الحبابي للسفريات والسياحة  " class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title"> الحبابي للسفريات والسياحة  </h3>
+              <p class="portfolio-category">تطوير مواقع الويب | الغباري سوفت</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 3: تطبيق سندي -->
+        <div class="portfolio-item reveal stagger-2" data-category="apps">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-3 no-padding">
+              <img src="../assets/images/portfolio/websites/soft.png" alt="تطبيق الغباري سوفت المحاسبي" class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">تطبيق الغباري سوفت المحاسبي</h3>
+              <p class="portfolio-category">تطبيقات الهواتف الذكية | الغباري سوفت</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 4: نظام مالي ERP -->
+        <div class="portfolio-item reveal" data-category="software">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-4 no-padding">
+              <img src="../assets/images/portfolio/websites/unnamed.png" alt="النظام الذكي لإدارة الموارد" class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">نظام الذكي لكشف الاحتيال  ERP</h3>
+              <p class="portfolio-category">الأنظمة الإدارية والبرمجيات | الغباري سوفت</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 5: هوية مطعم يمني -->
+        <div class="portfolio-item reveal stagger-1" data-category="branding">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-5 no-padding">
+              <img src="../assets/images/portfolio/logos/aldlfin logo.png" alt="هوية مطابخ تهامة" class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">الهوية البصرية للغباري تسويق </h3>
+              <p class="portfolio-category">الهوية البصرية والبراندنج | الغباري للتسويق</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- مشروع 6: إدارة حسابات سنابل -->
+        <div class="portfolio-item reveal stagger-2" data-category="social">
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-6 no-padding">
+              <img src="../assets/images/portfolio/social-media/alghbari-glas.jpg" alt="سوشيال ميديا الغباري  للزجاج والدربزين واعمال اللكبوند" class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">حملات تسويقية  للغباري  للزجاج والدرابزين واعمال اللكبوند </h3>
+              <p class="portfolio-category">إدارة حسابات السوشيال ميديا | الغباري للتسويق</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer footer--dark">
+    <div class="container">
+      <div class="grid-4 grid-4--footer">
+        <div class="footer-col footer-col--brand">
+          <div class="navbar-logo navbar-logo--footer">
+            <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo" class="footer-logo">
+            <span class="navbar-brand-name navbar-brand-name--footer">مجموعة الغباري</span>
+          </div>
+          <p class="footer-desc">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">خدماتنا الرقمية</h4>
+          <ul class="footer-list">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">صفحات الموقع</h4>
+          <ul class="footer-list">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-contact-heading">تواصل معنا</h4>
+          <ul class="footer-contact-list">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li class="footer-contact-actions">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="social-icon"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="social-icon"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="social-icon"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="social-icon"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    const portfolioGallery = [
+      { category: 'logos', title: 'شعار العميل: aldlfin', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/aldlfin logo.png' },
+      { category: 'logos', title: 'شعار العميل: aldobai', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/aldobailogo.png' },
+      { category: 'logos', title: 'شعار العميل: alsm almlaki', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/alsm-almlaki-logo-wit.png' },
+      { category: 'logos', title: 'شعار العميل: alsm almlaki', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/alsm-almlaki-logo-yloo.png' },
+      { category: 'logos', title: 'شعار العميل: alsm almlaki', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/alsm-almlaki-logo.png' },
+      { category: 'logos', title: 'شعار العميل: am knan', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/am knan logo.png' },
+      { category: 'logos', title: 'شعار العميل: hababi', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/hababi-logo.png' },
+      { category: 'logos', title: 'شعار العميل: hababi travel', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/hababi-tra-logo.png' },
+      { category: 'logos', title: 'شعار العميل: alghbari gass', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/logo alghbarigass.png' },
+      { category: 'logos', title: 'شعار العميل: knn', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/logo knn.png' },
+      { category: 'logos', title: 'شعار العميل: my logo', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/logo my.jpg' },
+      { category: 'logos', title: 'شعار العميل: my logo 2', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/logomy2.jpg' },
+      { category: 'logos', title: 'شعار العميل: logo v', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/logov.jpg' },
+      { category: 'logos', title: 'شعار العميل: online shop', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/logos/online-shop-logo.png' },
+      { category: 'branding', title: 'هوية بصرية', subtitle: 'هوية بصرية | الغباري للتسويق', image: '../assets/images/portfolio/branding/Visual identity1.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/alghbari-glas.jpg' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/alghbari-glass.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/alnsr-descaond.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/alnsrp.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/barashor.jpg' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/Blue and White Modern Online Courses Poster_20251017_001544_٠٠٠٠.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/god.jpg' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/my1.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/my2.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/rodi fis.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/rodi1.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/rodi2.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/Social media.jpg' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/taxi.png' },
+      { category: 'social', title: 'تصميم سوشيال ميديا', subtitle: 'إدارة حسابات السوشيال ميديا | الغباري للتسويق', image: '../assets/images/portfolio/social-media/Visual identity2.png' },
+      { category: 'web', title: 'مشروع موقع ويب', subtitle: 'تطوير مواقع الويب | الغباري سوفت', image: '../assets/images/portfolio/websites/alhabaitravel.png' },
+      { category: 'web', title: 'مشروع موقع ويب', subtitle: 'تطوير مواقع الويب | الغباري سوفت', image: '../assets/images/portfolio/websites/soft.png' },
+      { category: 'web', title: 'مشروع موقع ويب', subtitle: 'تطوير مواقع الويب | الغباري سوفت', image: '../assets/images/portfolio/websites/unnamed.png' },
+      { category: 'apps', title: 'تطبيق جوال', subtitle: 'تطبيقات الهواتف الذكية | الغباري سوفت', image: '../assets/images/portfolio/websites/apps.png' },
+      { category: 'logos', title: 'شعار الغباري', subtitle: 'تصميم شعار | الغباري للتسويق', image: '../assets/images/portfolio/websites/alghbari-soft-logo.png' }
+    ];
+
+    function buildPortfolioCards() {
+      const grid = document.getElementById('portfolioGrid');
+      if (!grid) return;
+
+      portfolioGallery.forEach((item, index) => {
+        const card = document.createElement('article');
+        card.className = 'portfolio-item reveal';
+        if (index % 3 === 1) card.classList.add('stagger-1');
+        if (index % 3 === 2) card.classList.add('stagger-2');
+        card.setAttribute('data-category', item.category);
+        card.innerHTML = `
+          <div class="project-card-wrapper">
+            <div class="project-image-placeholder bg-gradient-${(index % 6) + 1} no-padding">
+              <img src="${item.image}" alt="${item.title}" class="project-img">
+            </div>
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">${item.title}</h3>
+              <p class="portfolio-category">${item.subtitle}</p>
+              <a href="#" class="portfolio-link">عرض التفاصيل</a>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }
+
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildPortfolioCards();
+
+      const filterButtons = document.querySelectorAll('.portfolio-filter');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          portfolioItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+
+            if (filterValue === 'all' || itemCategory === filterValue) {
+              item.classList.remove('hidden');
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأسئلة الشائعة | مجموعة الغباري الرقمية</title>
+  
+  <!-- تحسينات محركات البحث — SEO META TAGS -->
+  <meta name="description" content="ابحث عن إجابات لاستفساراتك حول كيفية طلب خدمات مجموعة الغباري للتسويق والبرمجيات، مدة تسليم المشاريع، تفاصيل الدعم الفني، وخدمة الاستشارات المجانية.">
+  <meta name="keywords" content="اسئلة شائعة, استفسارات, دعم فني, طلب خدمة, استشارة مجانية, مدة المشروع">
+  
+  <!-- استدعاء الخطوط والملفات التنسيقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo/logo-icon.png">
+  
+  <style>
+    /* أنماط صفحة الأسئلة الشائعة الخاصة */
+    .faq-search-box {
+      max-width: 600px;
+      margin: var(--space-4) auto var(--space-8);
+      position: relative;
+    }
+    
+    .faq-search-input {
+      width: 100%;
+      padding: 0.85rem 1.5rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: white;
+      font-size: var(--text-sm);
+      outline: none;
+      transition: var(--transition-base);
+    }
+    
+    .faq-search-input:focus {
+      border-color: var(--color-cyan);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .faq-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div class="page-loader" id="pageLoader">
+    <img src="../assets/images/logo/logo-main.png" alt="شعار مجموعة الغباري" class="loader-logo">
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-logo">
+        <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo">
+        <span class="navbar-brand-name">مجموعة الغباري</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="../index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">خدماتنا</a>
+        <a href="portfolio.html" class="nav-link">أعمالنا</a>
+        <a href="about.html" class="nav-link">من نحن</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+        <a href="faq.html" class="nav-link active">الأسئلة الشائعة</a>
+        <a href="contact.html" class="nav-link">اتصل بنا</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-shimmer">ابدأ مشروعك</a>
+        <button class="navbar-toggle" id="menuToggle" aria-label="افتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- خلفية متناسقة في أعلى الصفحة -->
+  <section class="section-sm page-hero">
+    <div class="container">
+      <span class="section-badge">الدعم المعرفي</span>
+      <h1 class="section-title reveal">أجوبة لاستفساراتك</h1>
+      <p class="section-desc reveal">أجوبة سريعة ومفصلة قمنا بإعدادها لمساعدتك في فهم خدماتنا وإجراءات بدء العمل معنا.</p>
+      <div class="section-divider"></div>
+      
+      <!-- شريط البحث الفوري في الأسئلة -->
+      <div class="faq-search-box reveal">
+        <input type="text" class="faq-search-input" id="faqSearch" placeholder="ابحث عن سؤالك هنا (مثال: 'استشارة' أو 'دعم')...">
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الأكورديون للأسئلة الشائعة — FAQ Accordion Section -->
+  <section class="section" style="padding-top: var(--space-4);">
+    <div class="container">
+      
+      <div class="accordion" style="max-width: 850px; margin: 0 auto;" id="faqContainer">
+        
+        <!-- سؤال 1 -->
+        <div class="accordion-item faq-card reveal">
+          <button class="accordion-header" id="faqQ1">
+            <span class="faq-question">ما هي الخدمات التي تقدمونها بالتحديد؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>نحن نقدم منظومة متكاملة من الخدمات: 
+            <strong>قسم التسويق</strong> يختص بتصميم الهويات البصرية والشعارات، إدارة السوشيال ميديا، الموشن جرافيكس، والإعلانات الرقمية. 
+            بينما يختص <strong>قسم البرمجيات (سوفت)</strong> بتطوير المواقع والمنصات، برمجة تطبيقات الجوال للأندرويد والآيفون، بناء الأنظمة المحاسبية وأنظمة ERP وCRM، بالإضافة لتطوير ودمج تقنيات الذكاء الاصطناعي للأعمال.</p>
+          </div>
+        </div>
+        
+        <!-- سؤال 2 -->
+        <div class="accordion-item faq-card reveal stagger-1">
+          <button class="accordion-header" id="faqQ2">
+            <span class="faq-question">كيف يمكنني طلب خدمة أو بدء التعاون معكم؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>يمكنك بدء ذلك بسهولة تامة من خلال الذهاب إلى صفحة <strong>اتصل بنا</strong> وتعبئة النموذج الفني المحدد، أو النقر على خيار الاستشارة المجانية، أو مراسلتنا مباشرة على رقم الواتساب المباشر الخاص بنا <code>+967 770104005</code>، كما يمكنك تسجيل بياناتك مع البوت الذكي أسفل الشاشة وسنتصل بك سريعاً.</p>
+          </div>
+        </div>
+        
+        <!-- سؤال 3 -->
+        <div class="accordion-item faq-card reveal stagger-2">
+          <button class="accordion-header" id="faqQ3">
+            <span class="faq-question">هل تقدمون جلسات استشارية للمشاريع الناشئة؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>نعم، نؤمن بأن التخطيط الصحيح هو أساس النجاح. لذلك نقدم جلسة استشارية أولى <strong>مجانية تماماً</strong> مدتها 30 دقيقة مع الأستاذ نابل الغباري وخبراء المنظومة، لمراجعة فكرة مشروعك، تحليل الفرص والمنافسين، وإخبارك بالحل التقني والتسويقي المناسب لميزانيتك.</p>
+          </div>
+        </div>
+        
+        <!-- سؤال 4 -->
+        <div class="accordion-item faq-card reveal">
+          <button class="accordion-header" id="faqQ4">
+            <span class="faq-question">كم تستغرق مدة تنفيذ وبرمجة المشاريع؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>تختلف المدة الزمنية حسب حجم المشروع وطبيعته. على سبيل المثال:
+            <ul>
+              <li>• الهوية البصرية والشعارات: تستغرق عادة من 5 إلى 10 أيام عمل.</li>
+              <li>• مواقع الويب التعريفية: تستغرق من 7 إلى 14 يوم عمل.</li>
+              <li>• المتاجر الإلكترونية والتطبيقات البسيطة: تستغرق من 3 إلى 5 أسابيع.</li>
+              <li>• الأنظمة المخصصة وأنظمة ERP: يتم تحديد مدتها بدقة بعد صياغة كراسة الشروط الفنية.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+        
+        <!-- سؤال 5 -->
+        <div class="accordion-item faq-card reveal stagger-1">
+          <button class="accordion-header" id="faqQ5">
+            <span class="faq-question">هل تقدمون دعماً فنياً بعد تسليم المشاريع؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>بالتأكيد. رضا عملائنا هو المحرك الأساسي لأعمالنا. نلتزم بتقديم فترة دعم فني وتدريب مجانية بالكامل بعد تسليم أي موقع أو تطبيق لضمان خلوه من أي مشاكل واستقرار أدائه، مع إمكانية توقيع عقود صيانة سنوية مخصصة لتحديث الأنظمة وإضافة خواص جديدة.</p>
+          </div>
+        </div>
+        
+        <!-- سؤال 6 -->
+        <div class="accordion-item faq-card reveal stagger-2">
+          <button class="accordion-header" id="faqQ6">
+            <span class="faq-question">هل يمكن تنفيذ مشاريع مخصصة غير مدرجة بالخدمات؟</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>نعم، خدماتنا البرمجية مرنة بشكل كامل. نملك في الغباري سوفت فريقاً قادراً على كتابة وبناء برمجيات خاصة ومبتكرة لتسهيل دورات عمل معقدة، أو ربط أنظمة قديمة بأنظمة حديثة عبر الـ APIs، أو بناء منصات تفاعلية ضخمة. يمكنك مشاركة متطلباتك وسندرس إمكانية تنفيذها بكل سرور.</p>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- قسم الدعوة لاتخاذ إجراء -->
+  <section class="section" style="background: var(--color-bg-secondary); text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <h2 style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: var(--space-2);">هل لا زال لديك سؤال لم يتم الإجابة عليه؟</h2>
+      <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-4); line-height: 1.8;">
+        لا تتردد في مراسلتنا بالاستفسار الخاص بك وسيرد عليك ممثلو خدمة العملاء فوراً لتوفير كافة التفاصيل المطلوبة.
+      </p>
+      <a href="contact.html" class="btn btn-primary btn-lg btn-shimmer">اطرح سؤالك الآن</a>
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer" style="background: #020617; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: var(--space-12) 0 var(--space-4); color: var(--color-text-muted);">
+    <div class="container">
+      <div class="grid-4" style="margin-bottom: var(--space-8);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <div class="navbar-logo" style="margin-bottom: var(--space-1);">
+            <img src="../assets/images/logo/logo-main.png" alt="Alghbari Group Logo" style="height: 52px;">
+            <span class="navbar-brand-name" style="font-size: var(--text-lg); font-weight: 700;">مجموعة الغباري</span>
+          </div>
+          <p style="font-size: var(--text-sm); line-height: 1.8;">
+            منظومة متكاملة لتقديم أرقى خدمات التسويق الرقمي وتطوير الحلول البرمجية وتطبيقات الهاتف الذكي ومساعدي الذكاء الاصطناعي.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">خدماتنا الرقمية</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="services.html?tab=marketing">تصميم الشعارات والهويات البصرية</a></li>
+            <li><a href="services.html?tab=marketing">إدارة منصات التواصل وصناعة المحتوى</a></li>
+            <li><a href="services.html?tab=soft">تطوير المواقع والمنصات التفاعلية</a></li>
+            <li><a href="services.html?tab=soft">تطوير تطبيقات الأندرويد والـ iOS</a></li>
+            <li><a href="services.html?tab=soft">الأنظمة الإدارية والمحاسبية وERP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">صفحات الموقع</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm);">
+            <li><a href="../index.html">الرئيسية</a></li>
+            <li><a href="services.html">خدمات المنظومة</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="about.html">قصتنا ومن نحن</a></li>
+            <li><a href="blog.html">المدونة والمقالات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-primary); font-weight: 700; margin-bottom: var(--space-3); font-size: var(--text-base);">تواصل معنا</h4>
+          <ul style="display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm);">
+            <li>📍 صنعاء — الجمهورية اليمنية</li>
+            <li>📧 alghbarigroup@gmail.com</li>
+            <li>📞 +967 770104005</li>
+            <li style="margin-top: 10px; display: flex; gap: 15px; font-size: 1.2rem;">
+              <div class="social-links">
+                <a class="social-link" href="https://www.facebook.com/share/16r2U4fDSM/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M13.5 22v-8.5h2.8l.4-3.2h-3.2V3.8c0-.9.3-1.6 1.7-1.6H17V.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.4H8v3.2h2.5V22h3Z"/></svg>
+                </a>
+                <a class="social-link" href="https://www.instagram.com/ghabari.design?igsh=cmtvdGx3eWwzYmZt" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2Zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2Zm5.2-3.7a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/company/alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.6h2.88V19H5.5zm4.74 0h2.76v1.28h.04c.38-.72 1.33-1.48 2.73-1.48 2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-8.13c0-1.93-.03-4.42-2.69-4.42-2.7 0-3.11 2.1-3.11 4.27V19H10.2z"/></svg>
+                </a>
+                <a class="social-link" href="https://youtube.com/@alghbarigroup" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.8 2.8 0 0 0-2 2A30.1 30.1 0 0 0 2 12a30.1 30.1 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.8 2.8 0 0 0 2-2A30.1 30.1 0 0 0 22 12a30.1 30.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: var(--text-xs);">
+        <span>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> مجموعة الغباري.</span>
+        <span>تطوير وإشراف: الأستاذ نبيل الغباري 🚀</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- استدعاء ملفات الجافا سكربت -->
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/ai-assistant.js"></script>
+  
+  <script>
+    // إخفاء شاشة التحميل بمجرد تحميل الصفحة
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) loader.classList.add('hidden');
+    });
+
+    // كود البحث الفوري في الأسئلة الشائعة
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('faqSearch');
+      const faqCards = document.querySelectorAll('.faq-card');
+      
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        
+        faqCards.forEach(card => {
+          const questionText = card.querySelector('.faq-question').textContent.toLowerCase();
+          const answerText = card.querySelector('.accordion-body').textContent.toLowerCase();
+          
+          if (questionText.includes(query) || answerText.includes(query)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+            // التأكد من إغلاق المفتوح منها إذا تم إخفاؤه
+            card.classList.remove('active');
+            const body = card.querySelector('.accordion-body');
+            if (body) body.style.maxHeight = null;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

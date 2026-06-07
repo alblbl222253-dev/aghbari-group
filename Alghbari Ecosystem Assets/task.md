@@ -1,0 +1,11 @@
+- [ ] Create assets directory structure and copy logo/media files
+- [ ] Create `website/js/main.js` (Core website logic, configuration, mobile menu, and utilities)
+- [ ] Create `website/js/animations.js` (Scroll reveal and mouse spotlight card effect implementation)
+- [ ] Create `website/js/ai-assistant.js` (Bilingual floating AI helper chatbot script)
+- [ ] Create `website/index.html` (Arabic/English home page with premium layout and sections)
+- [ ] Create `website/pages/services.html` (Tabbed marketing and soft services list)
+- [ ] Create `website/pages/portfolio.html` (Filterable portfolio masonry grid)
+- [ ] Create `website/pages/about.html` (Founder story, vision, mission, and future roadmap)
+- [ ] Create `website/pages/blog.html` (Bilingual modern blog cards layout)
+- [ ] Create `website/pages/faq.html` (Accordion style questions and answers)
+- [ ] Create `website/pages/contact.html` (Premium contact form, map location, WhatsApp quick links)

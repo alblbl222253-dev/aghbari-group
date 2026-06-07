@@ -1,0 +1,81 @@
+Alghbari Ecosystem Assets
+
+01_Brand
+│
+├── Logo
+├── Colors
+│   └── color-palette.txt
+├── Fonts
+│   └── fonts.txt
+└── Brand Guide
+└── brand-guide-v1.txt
+
+02_Company
+│
+├── company-information.txt
+├── vision.txt
+├── mission.txt
+└── about.txt
+
+03_Services
+│
+├── Alghbari Marketing
+│   ├── services-list.txt
+│   └── pricing.txt
+│
+└── Alghbari Soft
+├── services-list.txt
+└── pricing.txt
+
+04_Portfolio
+│
+├── Logos
+├── Social Media
+├── Websites
+├── Mobile Apps
+└── Visual Identity
+
+05_Testimonials
+│
+└── testimonials.txt
+
+06_Founder
+│
+├── founder-bio.txt
+└── founder-photo.jpg
+
+07_Social Media
+│
+└── social-links.txt
+
+08_Website Content
+│
+├── home-page.txt
+├── about-page.txt
+├── services-page.txt
+├── faq.txt
+└── blog-topics.txt
+
+09_AI Assistant
+│
+├── company-knowledge.txt
+├── faq.txt
+├── services.txt
+├── pricing.txt
+└── policies.txt
+
+10_Documents
+│
+├── roadmap.txt
+├── future-features.txt
+├── database-plan.txt
+└── master-prompt.txt
+
+11_System Design
+│
+├── database-schema.txt
+├── api-plan.txt
+├── crm-plan.txt
+├── erp-plan.txt
+├── accounting-system-plan.txt
+└── mobile-app-plan.txt

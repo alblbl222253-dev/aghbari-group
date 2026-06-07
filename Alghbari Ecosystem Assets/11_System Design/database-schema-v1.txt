@@ -1,0 +1,392 @@
+ALGHBARI ECOSYSTEM
+
+DATABASE SCHEMA V1
+
+==================================================
+AUTHENTICATION
+==============
+
+TABLE: users
+
+id
+full_name
+email
+phone
+password
+role
+avatar
+status
+created_at
+updated_at
+
+Roles:
+
+admin
+manager
+staff
+client
+
+==================================================
+CLIENTS
+=======
+
+TABLE: clients
+
+id
+client_name
+company_name
+email
+phone
+country
+city
+address
+notes
+status
+created_at
+updated_at
+
+==================================================
+LEADS
+=====
+
+TABLE: leads
+
+id
+full_name
+email
+phone
+service_id
+source
+message
+status
+created_at
+
+Lead Status:
+
+new
+contacted
+qualified
+proposal_sent
+won
+lost
+
+==================================================
+SERVICES
+========
+
+TABLE: services
+
+id
+name
+slug
+category
+description
+price
+featured
+status
+created_at
+
+Categories:
+
+marketing
+software
+
+==================================================
+PROJECTS
+========
+
+TABLE: projects
+
+id
+client_id
+project_name
+description
+service_id
+start_date
+end_date
+status
+budget
+progress
+created_at
+
+Project Status:
+
+pending
+active
+review
+completed
+cancelled
+
+==================================================
+PROJECT FILES
+=============
+
+TABLE: project_files
+
+id
+project_id
+file_name
+file_url
+file_type
+uploaded_by
+created_at
+
+==================================================
+MESSAGES
+========
+
+TABLE: messages
+
+id
+name
+email
+phone
+subject
+message
+status
+created_at
+
+==================================================
+APPOINTMENTS
+============
+
+TABLE: appointments
+
+id
+client_id
+appointment_date
+appointment_time
+meeting_type
+notes
+status
+created_at
+
+==================================================
+BLOG POSTS
+==========
+
+TABLE: blog_posts
+
+id
+title
+slug
+excerpt
+content
+featured_image
+author_id
+category_id
+status
+published_at
+created_at
+
+==================================================
+BLOG CATEGORIES
+===============
+
+TABLE: blog_categories
+
+id
+name
+slug
+description
+
+==================================================
+TESTIMONIALS
+============
+
+TABLE: testimonials
+
+id
+client_name
+company_name
+rating
+testimonial
+image
+featured
+created_at
+
+==================================================
+PORTFOLIO
+=========
+
+TABLE: portfolio
+
+id
+title
+slug
+category
+description
+cover_image
+project_url
+featured
+created_at
+
+==================================================
+MEDIA LIBRARY
+=============
+
+TABLE: media
+
+id
+file_name
+file_url
+file_type
+uploaded_by
+created_at
+
+==================================================
+SETTINGS
+========
+
+TABLE: settings
+
+id
+site_name
+site_email
+site_phone
+site_whatsapp
+site_address
+facebook
+instagram
+linkedin
+youtube
+tiktok
+updated_at
+
+==================================================
+AI ASSISTANT
+============
+
+TABLE: ai_knowledge
+
+id
+title
+content
+category
+status
+created_at
+
+TABLE: ai_conversations
+
+id
+visitor_id
+question
+answer
+created_at
+
+==================================================
+SUPPORT SYSTEM
+==============
+
+TABLE: support_tickets
+
+id
+client_id
+subject
+message
+priority
+status
+created_at
+
+Priority:
+
+low
+medium
+high
+urgent
+
+==================================================
+INVOICES
+========
+
+TABLE: invoices
+
+id
+client_id
+invoice_number
+amount
+status
+issue_date
+due_date
+created_at
+
+Invoice Status:
+
+draft
+sent
+paid
+overdue
+cancelled
+
+==================================================
+PAYMENTS
+========
+
+TABLE: payments
+
+id
+invoice_id
+client_id
+amount
+payment_method
+payment_date
+notes
+
+==================================================
+ACCOUNTING PREPARATION
+======================
+
+TABLE: accounts
+
+id
+account_name
+account_type
+balance
+created_at
+
+TABLE: transactions
+
+id
+account_id
+amount
+transaction_type
+description
+created_at
+
+==================================================
+CRM PREPARATION
+===============
+
+TABLE: crm_tasks
+
+id
+assigned_to
+client_id
+title
+description
+status
+due_date
+created_at
+
+==================================================
+ERP PREPARATION
+===============
+
+TABLE: departments
+
+id
+department_name
+manager_id
+
+TABLE: employees
+
+id
+employee_name
+email
+phone
+position
+department_id
+
+==================================================
+END OF DOCUMENT
+===============

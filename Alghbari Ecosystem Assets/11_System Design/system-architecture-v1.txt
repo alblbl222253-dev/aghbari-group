@@ -1,0 +1,430 @@
+ALGHBARI ECOSYSTEM
+
+SYSTEM ARCHITECTURE V1
+
+==================================================
+SYSTEM OVERVIEW
+===============
+
+The Alghbari Ecosystem is designed as a scalable digital platform that combines:
+
+* Marketing Services
+* Software Services
+* AI Assistant
+* CRM
+* ERP
+* Accounting System
+* Client Portal
+* Mobile Application
+
+All modules must be able to work independently and together.
+
+==================================================
+HIGH LEVEL ARCHITECTURE
+=======================
+
+Visitor
+
+↓
+
+Website
+
+↓
+
+Lead System
+
+↓
+
+CRM
+
+↓
+
+Projects
+
+↓
+
+Invoices
+
+↓
+
+Accounting
+
+↓
+
+Reports
+
+==================================================
+MAIN COMPONENTS
+===============
+
+1. Public Website
+
+Purpose:
+
+* Generate leads
+* Showcase services
+* Display portfolio
+* Publish content
+* Build trust
+
+Pages:
+
+Home
+Services
+Portfolio
+About
+Blog
+FAQ
+Contact
+
+==================================================
+ADMIN DASHBOARD
+===============
+
+Purpose:
+
+Manage all platform operations.
+
+Modules:
+
+Dashboard
+Clients
+Projects
+Services
+Leads
+Blog
+Media
+Messages
+Invoices
+Reports
+Settings
+
+==================================================
+CLIENT PORTAL
+=============
+
+Purpose:
+
+Allow clients to follow projects.
+
+Features:
+
+Login
+Project Tracking
+File Downloads
+Invoices
+Support Requests
+Notifications
+
+==================================================
+AI ASSISTANT
+============
+
+Purpose:
+
+Provide automated customer support.
+
+Knowledge Sources:
+
+Company Data
+Services
+FAQ
+Policies
+Portfolio
+
+Capabilities:
+
+Answer Questions
+Recommend Services
+Collect Leads
+Schedule Meetings
+
+==================================================
+DATABASE LAYER
+==============
+
+Database:
+
+PostgreSQL
+
+Provider:
+
+Supabase
+
+Responsibilities:
+
+Store Data
+Authentication
+File Storage
+API Access
+
+==================================================
+AUTHENTICATION FLOW
+===================
+
+Users
+
+↓
+
+Login
+
+↓
+
+Role Verification
+
+↓
+
+Access Control
+
+Roles:
+
+Admin
+Manager
+Staff
+Client
+
+==================================================
+LEAD MANAGEMENT FLOW
+====================
+
+Visitor
+
+↓
+
+Contact Form
+
+↓
+
+Lead Created
+
+↓
+
+CRM
+
+↓
+
+Sales Follow Up
+
+↓
+
+Project Opportunity
+
+==================================================
+PROJECT FLOW
+============
+
+Lead
+
+↓
+
+Client
+
+↓
+
+Proposal
+
+↓
+
+Project
+
+↓
+
+Delivery
+
+↓
+
+Invoice
+
+↓
+
+Support
+
+==================================================
+BLOG SYSTEM
+===========
+
+Admin Creates Article
+
+↓
+
+Publish
+
+↓
+
+SEO Indexing
+
+↓
+
+Organic Traffic
+
+↓
+
+Lead Generation
+
+==================================================
+MEDIA MANAGEMENT
+================
+
+Storage:
+
+Supabase Storage
+
+Content:
+
+Images
+Videos
+Documents
+Portfolio Assets
+
+==================================================
+ANALYTICS FLOW
+==============
+
+Website
+
+↓
+
+Google Analytics
+
+↓
+
+User Behavior
+
+↓
+
+Performance Reports
+
+==================================================
+SEO FLOW
+========
+
+Website
+
+↓
+
+Search Console
+
+↓
+
+Indexing
+
+↓
+
+Ranking
+
+↓
+
+Organic Leads
+
+==================================================
+MOBILE APPLICATION
+==================
+
+Technology:
+
+Flutter
+
+Connection:
+
+API Layer
+
+Features:
+
+Client Access
+Notifications
+Project Tracking
+Support
+
+==================================================
+FUTURE CRM
+==========
+
+Modules:
+
+Lead Tracking
+Tasks
+Activities
+Follow Ups
+Sales Pipeline
+
+==================================================
+FUTURE ERP
+==========
+
+Modules:
+
+Departments
+Employees
+Operations
+Inventory
+Reporting
+
+==================================================
+FUTURE ACCOUNTING
+=================
+
+Modules:
+
+Chart of Accounts
+Transactions
+Invoices
+Payments
+Financial Reports
+
+==================================================
+SECURITY
+========
+
+Authentication
+
+Authorization
+
+Role Permissions
+
+Database Policies
+
+Secure API Access
+
+Backup Strategy
+
+==================================================
+DEPLOYMENT
+==========
+
+Frontend:
+
+Vercel
+
+Backend:
+
+Supabase
+
+Database:
+
+PostgreSQL
+
+Storage:
+
+Supabase Storage
+
+==================================================
+SCALABILITY GOAL
+================
+
+Support:
+
+Thousands of Visitors
+
+Hundreds of Clients
+
+Multiple Services
+
+Future SaaS Products
+
+AI Features
+
+Mobile Applications
+
+==================================================
+END OF DOCUMENT
+===============
